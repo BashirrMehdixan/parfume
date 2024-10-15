@@ -1,0 +1,19 @@
+.banner_title {
+    font-size: 6rem;
+    text-transform: capitalize;
+    color: rgba(var(--color_white), .8);
+    font-weight: 300;
+}
+
+.section_title {
+    font-size: 5rem;
+    font-weight: 500;
+    color: rgba(var(--color_main), 1);
+    &.white {
+        color: rgba(var(--color_white), 1);
+    }
+}
+
+.text_center {
+    text-align: center;
+}

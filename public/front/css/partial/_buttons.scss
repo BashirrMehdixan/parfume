@@ -1,0 +1,21 @@
+.btn {
+    display: inline-block;
+    font-size: 1.6rem;
+    padding: 1rem 1.6rem;
+    border-radius: 1rem;
+    text-transform: capitalize;
+    border: 1px solid transparent;
+    transition: all .5s ease-in-out;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.btn_main {
+        background-color: rgba(var(--color_main), 1);
+
+        &:hover {
+            background-color: rgba(var(--color_main), .7);
+        }
+    }
+}

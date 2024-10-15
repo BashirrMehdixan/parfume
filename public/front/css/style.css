@@ -1,0 +1,253 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+* {
+  font-family: "Satoshi", sans-serif;
+  font-size: 10px;
+  color: rgba(var(--color_white), 1);
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+:root {
+  --color_main: 171, 87, 45;
+  --color_dark_black: 0, 0, 0;
+  --color_black: 38, 37, 35;
+  --color_white: 255, 255, 255;
+  --color_blue: 19, 208, 227;
+}
+
+body {
+  background-color: rgba(var(--color_dark_black), 1);
+}
+
+a {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.inner_text {
+  font-size: 2.4rem;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  color: rgba(var(--color_white), 0.7);
+}
+.inner_text p {
+  color: inherit;
+  font-size: inherit;
+}
+
+.section_img {
+  height: 57rem;
+}
+.section_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content_box {
+  padding: 8rem 5rem;
+}
+
+.container {
+  width: 90%;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex_item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.justify_center {
+  justify-content: center;
+}
+
+.items_center {
+  align-items: center;
+}
+
+.w_33 {
+  flex: 0 0 33.3333333333%;
+  max-width: 33.3333333333%;
+}
+
+.w_50 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.w_66 {
+  flex: 0 0 66.6666666667%;
+  max-width: 66.6666666667%;
+}
+
+.banner_title {
+  font-size: 6rem;
+  text-transform: capitalize;
+  color: rgba(var(--color_white), 0.8);
+  font-weight: 300;
+}
+
+.section_title {
+  font-size: 5rem;
+  font-weight: 500;
+  color: rgba(var(--color_main), 1);
+}
+.section_title.white {
+  color: rgba(var(--color_white), 1);
+}
+
+.text_center {
+  text-align: center;
+}
+
+.product_card {
+  background: #121212;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 1.6rem 0;
+  transition: all 0.2s ease-in;
+}
+.product_card * {
+  font-size: 2rem;
+}
+.product_card .thumbnail {
+  overflow: hidden;
+}
+.product_card .thumbnail img {
+  max-width: 25rem;
+  height: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease-in;
+}
+.product_card .card_body .p_title {
+  font-weight: 600;
+  transition: all 0.5s ease-in;
+}
+.product_card .card_body .price_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+.product_card .card_body .price_body .p_price span {
+  font-weight: 500;
+  color: rgba(var(--color_main), 1);
+}
+.product_card:hover .p_title {
+  color: rgba(var(--color_main), 1);
+}
+.product_card:hover .thumbnail img {
+  transform: scale(1.1);
+}
+
+.btn {
+  display: inline-block;
+  font-size: 1.6rem;
+  padding: 1rem 1.6rem;
+  border-radius: 1rem;
+  text-transform: capitalize;
+  border: 1px solid transparent;
+  transition: all 0.5s ease-in-out;
+}
+.btn:focus {
+  outline: none;
+}
+.btn.btn_main {
+  background-color: rgba(var(--color_main), 1);
+}
+.btn.btn_main:hover {
+  background-color: rgba(var(--color_main), 0.7);
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background: rgba(var(--color_main), 1);
+  z-index: 2;
+}
+header .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .navbar .logo {
+  display: block;
+  width: 19.2rem;
+}
+header .navbar .logo img {
+  width: 100%;
+}
+header .navbar .nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+header .navbar .nav-menu .nav-item {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: rgba(var(--color_white), 1);
+  transition: all 0.5s ease-in-out;
+}
+header .navbar .nav-menu .nav-item:hover {
+  color: rgba(var(--color_main), 1);
+}
+
+.banner_section .banner_block .flex_item {
+  align-items: center;
+  height: 100vh;
+}
+
+.about_section .about_box {
+  position: relative;
+  background: url(../images/backgrounds/bg-1.png) no-repeat center center;
+  background-size: cover;
+  padding: 10rem 0;
+}
+.about_section .about_box .flex_item {
+  position: relative;
+  z-index: 1;
+}
+
+.values_section .content_box .inner_text {
+  font-size: 2rem;
+}
+
+.best_selling {
+  padding: 5rem 0;
+}
+
+/*# sourceMappingURL=style.css.map */

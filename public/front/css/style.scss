@@ -1,0 +1,89 @@
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+@import "./partial/_default.scss";
+@import "./partial/_container.scss";
+@import "./partial/_headers.scss";
+@import "./partial/_cards.scss";
+@import "./partial/_buttons.scss";
+
+// Navbar start
+header {
+    position: fixed;
+    width: 100%;
+    background: rgba(var(--color_main), 1);
+    z-index: 2;
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            display: block;
+            width: 19.2rem;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+
+            .nav-item {
+                font-size: 1.6rem;
+                font-weight: 500;
+                color: rgba(var(--color_white), 1);
+                transition: all .5s ease-in-out;
+
+                &:hover {
+                    color: rgba(var(--color_main), 1);
+                }
+            }
+        }
+    }
+}
+
+// Navbar end
+
+// Banner start
+.banner_section {
+    .banner_block {
+        .flex_item {
+            align-items: center;
+            height: 100vh;
+        }
+    }
+}
+
+// Banner end
+
+// Home about start
+.about_section {
+    .about_box {
+        position: relative;
+        background: url(../images/backgrounds/bg-1.png) no-repeat center center;
+        background-size: cover;
+        padding: 10rem 0;
+
+        .flex_item {
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+.values_section {
+    .content_box {
+        .inner_text {
+            font-size: 2rem;
+        }
+    }
+}
+
+// Home about end
+
+.best_selling {
+    padding: 5rem 0;
+}
