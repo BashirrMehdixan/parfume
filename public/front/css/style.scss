@@ -7,15 +7,13 @@
 
 // Navbar start
 header {
-    position: fixed;
-    width: 100%;
-    background: rgba(var(--color_main), 1);
     z-index: 2;
 
     .navbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 1.6rem 0;
 
         .logo {
             display: block;
@@ -86,4 +84,60 @@ header {
 
 .best_selling {
     padding: 5rem 0;
+}
+
+.filter_box {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    * {
+        font-size: 1.6rem;
+    }
+
+    .filter_list {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+
+        .filter_item {
+            position: relative;
+
+            .active_filter {
+                cursor: pointer;
+            }
+
+            .filter_buttons {
+                position: absolute;
+                width: max-content;
+                left: 0;
+                top: 2.5rem;
+                border: 1px solid rgba(var(--color_main), 1);
+                border-radius: .8rem;
+                transform-origin: top;
+                transition: all .5s ease-in-out;
+                transform: scaleY(0);
+
+                &.active {
+                    transform: scaleY(1);
+                }
+
+                .btn {
+                    &.btn_filter {
+                        display: block;
+                        width: 100%;
+                        padding: .8rem 1rem;
+                        border-radius: .8rem;
+
+                        &:hover, &.selected {
+                            background: rgba(var(--color_main), 1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.products_section .flex_item {
+    padding: 2rem 0;
 }

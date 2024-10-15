@@ -71,3 +71,38 @@ img {
 .content_box {
     padding: 8rem 5rem;
 }
+
+.breadcrumb {
+    display: flex;
+    padding: 2rem 0;
+    gap: 1rem;
+
+    li {
+        position: relative;
+        font-size: 2rem;
+        padding: 0 1rem;
+        font-weight: 400;
+        transition: all .3s ease;
+
+        &:not(:last-child) {
+            &:hover {
+                color: rgba(var(--color_main), 1);
+            }
+
+            &::after {
+                position: absolute;
+                color: rgba(var(--color_white), 1);
+                content: "\\";
+                font-size: 2rem;
+                right: 0;
+                transform: translateX(100%);
+            }
+
+        }
+
+        &:last-child {
+            color: rgba(var(--color_main), .9);
+            font-weight: 500;
+        }
+    }
+}

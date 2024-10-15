@@ -74,11 +74,12 @@ class ProductsResource extends Resource
                             ->columnSpan('full')
                             ->required(),
                         Toggle::make('status'),
-                        Toggle::make('special_offer') .
+                        Toggle::make('special_offer'),
                         Toggle::make('best_selling'),
                     ])
+                    ->columns(2)
                     ->columnSpan(1)
-            ]);
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table

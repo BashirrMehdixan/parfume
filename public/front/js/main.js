@@ -1,9 +1,6 @@
-const bannerGlide = new Glide('.banner_glide', {
-    type: 'carousel',
-}).mount();
-
-const BestGlide = new Glide('.best_selling', {
-    type: 'carousel',
-    startAt: 0,
-    perView: 4,
-}).mount();
+const activeFilters = document.querySelectorAll('.active_filter');
+activeFilters.forEach(filter => {
+    filter.addEventListener('click', (e) => {
+        e.target.nextElementSibling.classList.toggle('active');
+    });
+})

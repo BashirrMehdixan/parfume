@@ -5,6 +5,8 @@
     border-radius: 1rem;
     text-transform: capitalize;
     border: 1px solid transparent;
+    cursor: pointer;
+    background: transparent;
     transition: all .5s ease-in-out;
 
     &:focus {

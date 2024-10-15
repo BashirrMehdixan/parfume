@@ -10,3 +10,4 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/brands', [BrandsController::class, 'index'])->name('brands.index');
 Route::get('/categories', [CategoriesController::class, 'index'])->name('categories.index');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
+Route::get('/products/{slug}', [ProductsController::class, 'show'])->name('products.show');
