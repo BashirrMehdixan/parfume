@@ -196,7 +196,7 @@ img {
   font-size: 6rem;
   text-transform: capitalize;
   color: rgba(var(--color_white), 0.8);
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .section_title {
@@ -429,6 +429,18 @@ header .navbar .nav-menu .nav-item:hover {
   .collection_row:first-child, .collection_row:nth-child(2), .collection_row:nth-child(3), .collection_row:nth-child(4), .collection_row:nth-child(5), .collection_row:nth-child(6), .collection_row:nth-child(7) {
     width: 100%;
   }
+}
+.sale_item {
+  display: flex;
+  align-items: center;
+  height: 55rem;
+  background: url(../images/backgrounds/bg-2.jpg) no-repeat center center;
+  background-size: 100% 100%;
+  padding: 0 2rem 0 3.5rem;
+}
+
+.articles_section {
+  padding: 3rem 0;
 }
 
 /*# sourceMappingURL=style.css.map */

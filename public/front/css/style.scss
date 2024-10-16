@@ -49,6 +49,7 @@ header {
 .banner_section {
     .banner_block {
         padding: 3rem 0;
+
         .flex_item {
             align-items: center;
             height: 100vh;
@@ -175,7 +176,7 @@ header {
 
 @media only screen and (max-width: 768px) {
     .banner_section {
-        .banner_block  {
+        .banner_block {
             .flex_item {
                 height: auto;
             }
@@ -195,3 +196,15 @@ header {
     }
 }
 
+.sale_item {
+    display: flex;
+    align-items: center;
+    height: 55rem;
+    background: url(../images/backgrounds/bg-2.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    padding: 0 2rem 0 3.5rem;
+}
+
+.articles_section {
+    padding: 3rem 0;
+}

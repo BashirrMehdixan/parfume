@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ LaravelLocalization::getCurrentLocale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,23 +19,37 @@
                 <ul class="nav-menu">
                     <li class="nav-item">
                         <a href="{{ route('index') }}" class="nav-link">
-                            Home
+                            {{ __('home') }}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('brands.index') }}" class="nav-link">
-                            Brands
+                            {{ __('brands') }}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('products.index') }}" class="nav-link">
-                            Products
+                            {{ __('products') }}
                         </a>
                     </li>
                 </ul>
             </nav>
             <div class="right-nav">
-
+                <div class="lang_box">
+                    <button class="btn" class="active_lang">
+                        {{ LaravelLocalization::getCurrentLocale() }}
+                    </button>
+                </div>
+                <ul>
+                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li>
+                            <a rel="alternate" hreflang="{{ $localeCode }}"
+                               href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">
+                                {{ $properties['native'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
