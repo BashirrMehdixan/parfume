@@ -9,6 +9,7 @@
     font-size: 5rem;
     font-weight: 500;
     color: rgba(var(--color_main), 1);
+
     &.white {
         color: rgba(var(--color_white), 1);
     }
@@ -16,4 +17,14 @@
 
 .text_center {
     text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .banner_title {
+        font-size: 3.5rem;
+    }
+
+    .section_title {
+        font-size: 3rem;
+    }
 }

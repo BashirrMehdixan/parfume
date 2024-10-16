@@ -4,3 +4,9 @@ activeFilters.forEach(filter => {
         e.target.nextElementSibling.classList.toggle('active');
     });
 })
+
+const collectionItems = document.querySelectorAll('.collection_item');
+
+collectionItems.forEach(collectionItem => {
+    collectionItem.style.backgroundImage = `url(${collectionItem.dataset.bg})`;
+})

@@ -3,5 +3,4 @@
     <div class="container">
         {{ Breadcrumbs::render('brands') }}
     </div>
-
 @endsection

@@ -50,7 +50,7 @@
             <div class="flex_item gap_30">
                 @if($products->count())
                     @foreach($products as $product)
-                        <div class="w_full w_25">
+                        <div class="w_full w_lg_25">
                             <x-product-card :product="$product"/>
                         </div>
                     @endforeach

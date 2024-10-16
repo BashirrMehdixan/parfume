@@ -11,7 +11,7 @@
                                 <div class="banner_block">
                                     <div class="container">
                                         <div class="flex_item">
-                                            <div class="w_66">
+                                            <div class="w-full w_lg_66">
                                                 <h2 class="banner_title">
                                                     {{$slide->title}}
                                                 </h2>
@@ -22,8 +22,9 @@
                                                     Shop now
                                                 </a>
                                             </div>
-                                            <div class="w_33">
-                                                <img src="{{ asset('storage/'.$slide->image) }}" alt="{{$slide->title}}">
+                                            <div class="d_none d_lg_block w_lg_33">
+                                                <img src="{{ asset('storage/'.$slide->image) }}"
+                                                     alt="{{$slide->title}}">
                                             </div>
                                         </div>
                                     </div>
@@ -43,16 +44,21 @@
             <div class="overlay"></div>
             <div class="container">
                 <div class="flex_item">
-                    <div class="w_66 mx-auto text_center">
+                    <div class="w_full w_lg_66 mx-auto text_center">
                         <h4 class="section_title">
                             Welcome to Local Face
                         </h4>
                         <p class="inner_text">
-                            Welcome to Local Face Perfumes, where the spirit of victory and triumph come alive through scents that empower
-                            and inspire. Our curated collection, aptly named "Victory Scented," is a celebration of success and elegance,
-                            designed to unleash your victorious essence. Indulge in the sweet taste of triumph with captivating fragrances
-                            that tell the tale of your achievements. At Local Face, we believe that every victory deserves a signature
-                            scent, and we are dedicated to providing unforgettable fragrances that elevate your spirit and empower your
+                            Welcome to Local Face Perfumes, where the spirit of victory and triumph come alive through
+                            scents that empower
+                            and inspire. Our curated collection, aptly named "Victory Scented," is a celebration of
+                            success and elegance,
+                            designed to unleash your victorious essence. Indulge in the sweet taste of triumph with
+                            captivating fragrances
+                            that tell the tale of your achievements. At Local Face, we believe that every victory
+                            deserves a signature
+                            scent, and we are dedicated to providing unforgettable fragrances that elevate your spirit
+                            and empower your
                             journey.
                         </p>
                     </div>
@@ -65,24 +71,28 @@
     {{-- Values start --}}
     <section class="values_section section_padding">
         <div class="flex_item">
-            <div class="w_50">
+            <div class="w_full w_lg_50">
                 <div class="section_img">
                     <img src="{{asset('front/images/section_img/img-1.png')}}" alt="">
                 </div>
             </div>
-            <div class="w_50">
+            <div class="w_full w_lg_50">
                 <div class="content_box">
                     <h4 class="section_title text_center">
                         Our Values
                     </h4>
                     <p class="inner_text">
-                        At Local Face, our perfume retail store is built on a foundation of passion and authenticity. We believe in
-                        celebrating the individuality of every customer, providing a diverse collection of scents that resonate with their
-                        unique personality and style. Our dedicated team of fragrance enthusiasts is committed to creating a welcoming and
+                        At Local Face, our perfume retail store is built on a foundation of passion and authenticity. We
+                        believe in
+                        celebrating the individuality of every customer, providing a diverse collection of scents that
+                        resonate with their
+                        unique personality and style. Our dedicated team of fragrance enthusiasts is committed to
+                        creating a welcoming and
                         inclusive environment, where connections are forged, and inspiration thrives.
                     </p>
                     <p class="inner_text">
-                        Embracing sustainability and continuous learning, Local Face strives to be more than just a shopping destination; we
+                        Embracing sustainability and continuous learning, Local Face strives to be more than just a
+                        shopping destination; we
                         are a community that inspires and empowers individuals on their fragrance journey.
                     </p>
                 </div>
@@ -121,5 +131,64 @@
         </div>
     </section>
     {{-- Best selling end --}}
+
+    <section class="home_collections section_padding">
+        <div class="container">
+            <h4 class="section_title text_center">
+                Our collection
+            </h4>
+            <div class="flex_item">
+                <div class="collection_row">
+                    <a href="{{ route('index') }}">
+                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-1.png') }}">
+                            Designer Delights Collection
+                        </div>
+                    </a>
+                </div>
+                <div class="collection_row">
+                    <a href="{{ route('index') }}">
+                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-2.png') }}">
+                            Designer Delights Collection
+                        </div>
+                    </a>
+                </div>
+                <div class="collection_row">
+                    <a href="{{ route('index') }}">
+                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-3.png') }}">
+                            Designer Delights Collection
+                        </div>
+                    </a>
+                </div>
+                <div class="collection_row">
+                    <a href="{{ route('index') }}">
+                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-4.png') }}">
+                            Designer Delights Collection
+                        </div>
+                    </a>
+                </div>
+                <div class="collection_row">
+                    <a href="{{ route('index') }}">
+                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-5.jpg') }}">
+                            Designer Delights Collection
+                        </div>
+                    </a>
+                </div>
+                <div class="collection_row">
+                    <a href="{{ route('index') }}">
+                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-6.png') }}">
+                            Designer Delights Collection
+                        </div>
+                    </a>
+                </div>
+                <div class="collection_row">
+                    <a href="{{ route('index') }}">
+                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-7.png') }}">
+                            Designer Delights Collection
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection

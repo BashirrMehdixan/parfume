@@ -48,6 +48,7 @@ header {
 // Banner start
 .banner_section {
     .banner_block {
+        padding: 3rem 0;
         .flex_item {
             align-items: center;
             height: 100vh;
@@ -138,6 +139,59 @@ header {
         }
     }
 }
+
 .products_section .flex_item {
     padding: 2rem 0;
 }
+
+
+.collection_row {
+    display: flex;
+
+    &:first-child {
+        width: 40%;
+    }
+
+    &:nth-child(2) {
+        width: 60%;
+    }
+
+    &:nth-child(3),
+    &:nth-child(4) {
+        width: 50%;
+    }
+
+    &:nth-child(5),
+    &:nth-child(6),
+    &:nth-child(7) {
+        width: 33.33333333%;
+    }
+
+    a {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .banner_section {
+        .banner_block  {
+            .flex_item {
+                height: auto;
+            }
+        }
+
+    }
+    .collection_row {
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(7) {
+            width: 100%;
+        }
+    }
+}
+

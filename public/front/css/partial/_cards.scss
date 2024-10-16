@@ -56,3 +56,17 @@
         }
     }
 }
+
+.collection_item {
+    width: 100%;
+    height: 46rem;
+    display: flex;
+    align-items: flex-end;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 1rem;
+    background-size: 100% 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all .3s ease;
+}
