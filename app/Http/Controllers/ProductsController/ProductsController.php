@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class ProductsController extends Controller
 {
@@ -18,7 +19,7 @@ class ProductsController extends Controller
 
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->first();
+        $product = Product::where('slug->'.LaravelLocalization::getCurrentLocale(), $slug)->first();
         return view('pages.products.show', compact('product'));
     }
 }

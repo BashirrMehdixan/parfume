@@ -73,7 +73,7 @@
         <div class="flex_item">
             <div class="w_full w_lg_50">
                 <div class="section_img">
-                    <img src="{{asset('front/images/section_img/img-1.png')}}" alt="">
+                    <img src="{{ asset('front/images/section_img/img-1.png') }}" alt="">
                 </div>
             </div>
             <div class="w_full w_lg_50">
@@ -138,56 +138,42 @@
                 Our collection
             </h4>
             <div class="flex_item">
-                <div class="collection_row">
-                    <a href="{{ route('index') }}">
-                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-1.png') }}">
-                            Designer Delights Collection
-                        </div>
-                    </a>
-                </div>
-                <div class="collection_row">
-                    <a href="{{ route('index') }}">
-                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-2.png') }}">
-                            Designer Delights Collection
-                        </div>
-                    </a>
-                </div>
-                <div class="collection_row">
-                    <a href="{{ route('index') }}">
-                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-3.png') }}">
-                            Designer Delights Collection
-                        </div>
-                    </a>
-                </div>
-                <div class="collection_row">
-                    <a href="{{ route('index') }}">
-                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-4.png') }}">
-                            Designer Delights Collection
-                        </div>
-                    </a>
-                </div>
-                <div class="collection_row">
-                    <a href="{{ route('index') }}">
-                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-5.jpg') }}">
-                            Designer Delights Collection
-                        </div>
-                    </a>
-                </div>
-                <div class="collection_row">
-                    <a href="{{ route('index') }}">
-                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-6.png') }}">
-                            Designer Delights Collection
-                        </div>
-                    </a>
-                </div>
-                <div class="collection_row">
-                    <a href="{{ route('index') }}">
-                        <div class="collection_item" data-bg="{{ asset('front/images/collections/collection-7.png') }}">
-                            Designer Delights Collection
-                        </div>
+                @forelse($brands as $brand)
+                    <div class="collection_row">
+                        <x-brand-card :brand="$brand"/>
+                    </div>
+                @empty
+
+                @endforelse
+            </div>
+        </div>
+    </section>
+
+    <section class="sale_section">
+        <div class="container">
+            <div class="sale_item">
+                <div class="w_full w_lg_50">
+                    <h2 class="banner_title">
+                        Perfume Year-End Sale! Up to 50% OFF
+                    </h2>
+                    <p class="inner_text">
+                        Discover an exquisite collection of premium perfumes at unbelievable prices during our exclusive
+                        Perfume
+                        Sale!
+                    </p>
+                    <a href="{{ route('products.index') }}" class="btn btn_main">
+                        Know more
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="articles_section">
+        <div class="container">
+            <h2 class="section_title text_center">
+                Latest articles
+            </h2>
         </div>
     </section>
 

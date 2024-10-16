@@ -3,12 +3,22 @@
 namespace App\Http\Controllers\BrandsController;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class BrandsController extends Controller
 {
     public function index()
     {
-        return view('pages.brands.index');
+        $brands = Brand::where('status', 1)->get();
+        return view('pages.brands.index', compact('brands'));
+    }
+
+    public function show($slug)
+    {
+        $brand = Brand::where('slug', $slug)->first();
+        $brandedP = Product::where('brand_id', $brand->id)->get();
+        return view('pages.brands.show', compact('brand', 'brandedP'));
     }
 }

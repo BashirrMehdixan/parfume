@@ -24,3 +24,14 @@ if (bestSelling) {
         }
     }).mount();
 }
+
+
+const obj = {
+    a: 1,
+    b: function () {
+        return this.a
+    },
+    c: () => {
+        return this.a
+    }
+}
