@@ -67,9 +67,48 @@
     <div class="container">
         <div class="flex_item">
             <div class="w_full w_md_50 w_lg_33">
-                <ul>
+                <ul class="footer_widget">
+                    <li class="footer_logo">
+                        <a href="{{ route('index') }}">
+                            <img src="{{ asset('storage/'.$about->logo) }}" alt="">
+                        </a>
+                    </li>
                     <li>
-                        <img src="{{ asset('storage/'.$about->logo) }}" alt="">
+                        <h4 class="footer_title">
+                            Subscribe to Our Newsletter:
+                        </h4>
+                        <p class="inner_text">
+                            Receive Updates on New Arrivals and Special Promotions!
+                        </p>
+                    </li>
+                    <li>
+                        <form action="">
+                            <input type="text" class="form_control" placeholder="Your email here">
+                        </form>
+                    </li>
+                    <li>
+                        <ul class="social_networks">
+                            <li class="twitter">
+                                <a href="">
+                                    <i data-lucide="twitter"></i>
+                                </a>
+                            </li>
+                            <li class="facebook">
+                                <a href="">
+                                    <i data-lucide="facebook"></i>
+                                </a>
+                            </li>
+                            <li class="linkedin">
+                                <a href="">
+                                    <i data-lucide="linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="instagram">
+                                <a href="">
+                                    <i data-lucide="instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

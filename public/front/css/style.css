@@ -72,6 +72,17 @@ img {
   font-size: inherit;
 }
 
+.form_control {
+  border: 1px solid rgba(var(--color_main), 1);
+  font-size: 1.6rem;
+  font-weight: 500;
+  padding: 1rem 2rem 1rem 1rem;
+  border-radius: 0.8rem;
+}
+.form_control:focus {
+  outline: none;
+}
+
 .section_img {
   height: 57rem;
 }
@@ -111,6 +122,36 @@ img {
 .breadcrumb li:last-child {
   color: rgba(var(--color_main), 0.9);
   font-weight: 500;
+}
+
+.social_networks {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+.social_networks li {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: rgba(var(--color_white), 1);
+}
+.social_networks li i {
+  flex-shrink: 0;
+}
+.social_networks .twitter {
+  background-color: rgb(29, 161, 242);
+}
+.social_networks .facebook {
+  background-color: rgb(59, 89, 152);
+}
+.social_networks .linkedin {
+  background-color: rgb(0, 119, 181);
+}
+.social_networks .instagram {
+  background-color: rgb(193, 53, 132);
 }
 
 @media only screen and (max-width: 768px) {
@@ -235,6 +276,10 @@ img {
 }
 .section_title.white {
   color: rgba(var(--color_white), 1);
+}
+
+.footer_title {
+  font-size: 2.4rem;
 }
 
 .text_center {
@@ -518,6 +563,13 @@ header .navbar .right-nav .lang_box .lang_items .lang_item a:hover {
 .collection_row a {
   display: block;
   width: 100%;
+}
+
+.footer_widget .footer_logo {
+  max-width: 14rem;
+}
+.footer_widget .inner_text {
+  font-size: 1.6rem;
 }
 
 @media only screen and (max-width: 768px) {
