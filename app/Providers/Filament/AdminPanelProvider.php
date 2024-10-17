@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Models\About;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -23,9 +24,13 @@ class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
+        $about = About::first();
         return $panel
             ->default()
             ->id('admin')
+            ->brandLogo(asset('storage/' . $about->logo))
+            ->brandLogoHeight('5rem')
+            ->favicon(asset('storage/' . $about->favicon))
             ->spa()
             ->path('admin')
             ->plugin(

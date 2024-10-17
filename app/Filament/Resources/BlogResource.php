@@ -65,6 +65,7 @@ class BlogResource extends Resource
                     FileUpload::make('image')
                         ->image()
                         ->columnSpan('full')
+                        ->directory('uploads/blogs')
                         ->required(),
                     Toggle::make('status')
                 ])->columns(2)->columnSpan(1),
@@ -75,12 +76,8 @@ class BlogResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('description'),
                 ImageColumn::make('image'),
-                TextColumn::make('slug')
+                TextColumn::make('title')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('category.title')

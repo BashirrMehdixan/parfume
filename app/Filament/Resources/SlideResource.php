@@ -43,10 +43,11 @@ class SlideResource extends Resource
                     FileUpload::make('image')
                         ->image()
                         ->imageEditor()
+                        ->directory('uploads/slide')
                         ->required(),
                     Toggle::make('status')
-                ])
-            ]);
+                ])->columnSpan(1)
+            ])->columns(3);
     }
 
     public static function table(Table $table): Table

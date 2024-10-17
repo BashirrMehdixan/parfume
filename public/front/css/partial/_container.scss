@@ -58,9 +58,20 @@
     width: 100%;
 }
 
+@media only screen and (min-width: 768px) {
+    .w_md_50 {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+}
+
 @media only screen and (min-width: 992px) {
     .d_lg_block {
         display: block;
+    }
+    .w_lg_20 {
+        flex: 0 0 auto;
+        width: 20%;
     }
     .w_lg_25 {
         flex: 0 0 auto;
@@ -84,5 +95,11 @@
 @media only screen and (max-width: 768px) {
     .container {
         width: 100%;
+    }
+    .flex_item {
+        * {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 }

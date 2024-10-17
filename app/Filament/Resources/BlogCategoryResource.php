@@ -59,6 +59,7 @@ class BlogCategoryResource extends Resource
                     FileUpload::make('image')
                         ->image()
                         ->imageEditor()
+                        ->directory('uploads/blogs')
                         ->columnSpan('full'),
                     Toggle::make('status'),
 

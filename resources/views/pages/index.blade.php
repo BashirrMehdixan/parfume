@@ -8,7 +8,8 @@
                     @if($slides->count() > 0)
                         @foreach($slides as $slide)
                             <li class="glide__slide">
-                                <div class="banner_block">
+                                <div class="banner_block"
+                                     style="background-image: url('{{ asset('storage/'.$slide->image) }}')">
                                     <div class="container">
                                         <div class="flex_item">
                                             <div class="w-full w_lg_66">
@@ -21,10 +22,6 @@
                                                 <a href="{{route('index')}}" class="btn btn_main">
                                                     Shop now
                                                 </a>
-                                            </div>
-                                            <div class="d_none d_lg_block w_lg_33">
-                                                <img src="{{ asset('storage/'.$slide->image) }}"
-                                                     alt="{{$slide->title}}">
                                             </div>
                                         </div>
                                     </div>
@@ -174,6 +171,17 @@
             <h2 class="section_title text_center">
                 Latest articles
             </h2>
+            <div class="flex_item">
+                @forelse($blogs as $blog)
+                    <div class="w_full w_md_50 w_lg_33">
+                        <x-blog-component :blog="$blog"/>
+                    </div>
+                @empty
+                    <h4 class="section_title text_center">
+                        There's no blog
+                    </h4>
+                @endforelse
+            </div>
         </div>
     </section>
 

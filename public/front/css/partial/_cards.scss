@@ -70,3 +70,35 @@
     overflow: hidden;
     transition: all .3s ease;
 }
+
+.blog_card {
+    margin-bottom: 2rem;
+
+    .blog_title {
+        font-size: 2rem;
+        min-height: 10.2rem;
+        font-weight: 500;
+        padding-top: 2rem;
+        transition: all .5s ease-in;
+
+        &:hover {
+            color: rgba(var(--color_main), 1);
+        }
+    }
+
+    .blog_body {
+        .inner_text {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .blog_card {
+        .blog_body {
+            .inner_text {
+                min-height: 12.3rem;
+            }
+        }
+    }
+}

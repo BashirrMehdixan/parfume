@@ -1,6 +1,7 @@
 .btn {
     display: inline-block;
     font-size: 1.6rem;
+    font-weight: 500;
     padding: 1rem 1.6rem;
     border-radius: 1rem;
     text-transform: capitalize;
@@ -14,10 +15,16 @@
     }
 
     &.btn_main {
+        color: rgba(var(--color_white), 1);
         background-color: rgba(var(--color_main), 1);
 
         &:hover {
             background-color: rgba(var(--color_main), .7);
         }
+    }
+
+    &.btn_main_outline {
+        padding: .8rem 3.6rem;
+        border: 1px solid rgba(var(--color_main), 1);
     }
 }
