@@ -75,6 +75,18 @@ img {
     }
 }
 
+.form_control {
+    border: 1px solid rgba(var(--color_main), 1);
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 1rem 2rem 1rem 1rem;
+    border-radius: .8rem;
+
+    &:focus {
+        outline: none;
+    }
+}
+
 .section_img {
     height: 57rem;
 
@@ -121,6 +133,41 @@ img {
             color: rgba(var(--color_main), .9);
             font-weight: 500;
         }
+    }
+}
+
+.social_networks {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+
+    li {
+        width: 4rem;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: rgba(var(--color_white), 1);
+        i {
+            flex-shrink: 0;
+        }
+    }
+
+    .twitter {
+        background-color: rgba(29, 161, 242, 1);
+    }
+
+    .facebook {
+        background-color: rgba(59, 89, 152, 1);
+    }
+
+    .linkedin {
+        background-color: rgba(0, 119, 181, 1);
+    }
+
+    .instagram {
+        background-color: rgba(193, 53, 132, 1);
     }
 }
 

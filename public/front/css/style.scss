@@ -223,6 +223,15 @@ header {
     }
 }
 
+.footer_widget {
+    .footer_logo {
+        max-width: 14rem;
+    }
+    .inner_text {
+        font-size: 1.6rem;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .banner_section {
         .banner_block {

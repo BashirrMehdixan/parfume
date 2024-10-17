@@ -13,7 +13,7 @@
         </h4>
         <div class="blog_content">
             <div class="inner_text">
-                {!! $blog->description !!}
+                {!! Str::limit($blog->description, 300) !!}
             </div>
             <a href="{{ route('blogs.show', $blog->slug) }}" class="btn btn_main_outline">
                 {{ __('read_more') }}
