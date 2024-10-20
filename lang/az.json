@@ -1,5 +1,7 @@
 {
     "home": "Əsas səhifə",
+    "about_us": "Haqqımızda",
+    "about": "Haqqımızda",
     "brands": "Brendlər",
     "products": "Məhsullar",
     "shop_now": "İndi al",
@@ -10,6 +12,7 @@
     "filter_by": "Filtrlə",
     "gender": "Cinsiyyət",
     "submit": "Təsdiqlə",
-    "read_more": "Ətraflı"
+    "read_more": "Ətraflı",
+    "watches": "Saatlar"
 }
 

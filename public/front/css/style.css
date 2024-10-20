@@ -127,7 +127,7 @@ img {
 .social_networks {
   display: flex;
   gap: 1rem;
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 .social_networks li {
   width: 4rem;
@@ -256,7 +256,7 @@ img {
   .container {
     width: 100%;
   }
-  .flex_item * {
+  .flex_item > * {
     padding-left: 0;
     padding-right: 0;
   }
@@ -279,6 +279,11 @@ img {
 }
 
 .footer_title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding-bottom: 1.5rem;
+}
+.footer_title.fs_24 {
   font-size: 2.4rem;
 }
 
@@ -410,7 +415,8 @@ header .navbar {
 }
 header .navbar .logo {
   display: block;
-  width: 10rem;
+  width: 13rem;
+  flex-shrink: 0;
 }
 header .navbar .logo img {
   width: 100%;
@@ -419,6 +425,7 @@ header .navbar .nav-menu {
   display: flex;
   align-items: center;
   gap: 1.6rem;
+  flex-shrink: 0;
 }
 header .navbar .nav-menu .nav-item {
   font-size: 1.6rem;
@@ -565,21 +572,38 @@ header .navbar .right-nav .lang_box .lang_items .lang_item a:hover {
   width: 100%;
 }
 
-.footer_widget .footer_logo {
+footer {
+  padding: 3rem 0;
+}
+footer .form_control {
+  width: 100%;
+}
+footer .footer_top {
+  border-top: 1px solid rgba(var(--color_main), 1);
+  padding-bottom: 1.5rem;
+}
+footer .footer_logo {
   max-width: 14rem;
 }
-.footer_widget .inner_text {
+footer .footer_widget .inner_text {
   font-size: 1.6rem;
 }
-
-@media only screen and (max-width: 768px) {
-  .banner_section .banner_block .flex_item {
-    height: auto;
-  }
-  .collection_row:first-child, .collection_row:nth-child(2), .collection_row:nth-child(3), .collection_row:nth-child(4), .collection_row:nth-child(5), .collection_row:nth-child(6), .collection_row:nth-child(7) {
-    width: 100%;
-  }
+footer .copyright {
+  font-size: 1.6rem;
+  font-weight: 500;
 }
+
+.footer_list li {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 1.3rem;
+  transition: all 0.3s ease-in-out;
+}
+.footer_list li:hover {
+  color: rgba(var(--color_main), 1);
+}
+
 .sale_item {
   display: flex;
   align-items: center;
@@ -594,6 +618,15 @@ header .navbar .right-nav .lang_box .lang_items .lang_item a:hover {
 
 .articles_section {
   padding: 3rem 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .banner_section .banner_block .flex_item {
+    height: auto;
+  }
+  .collection_row:first-child, .collection_row:nth-child(2), .collection_row:nth-child(3), .collection_row:nth-child(4), .collection_row:nth-child(5), .collection_row:nth-child(6), .collection_row:nth-child(7) {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

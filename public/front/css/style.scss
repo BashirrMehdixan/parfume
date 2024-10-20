@@ -17,7 +17,8 @@ header {
 
         .logo {
             display: block;
-            width: 10rem;
+            width: 13rem;
+            flex-shrink: 0;
 
             img {
                 width: 100%;
@@ -28,6 +29,7 @@ header {
             display: flex;
             align-items: center;
             gap: 1.6rem;
+            flex-shrink: 0;
 
             .nav-item {
                 font-size: 1.6rem;
@@ -223,13 +225,64 @@ header {
     }
 }
 
-.footer_widget {
+footer {
+    padding: 3rem 0;
+
+    .form_control {
+        width: 100%;
+    }
+
+    .footer_top {
+        border-top: 1px solid rgba(var(--color_main), 1);
+        padding-bottom: 1.5rem;
+    }
+
     .footer_logo {
         max-width: 14rem;
     }
-    .inner_text {
-        font-size: 1.6rem;
+
+    .footer_widget {
+        .inner_text {
+            font-size: 1.6rem;
+        }
     }
+
+    .copyright {
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+}
+
+
+.footer_list {
+    li {
+        font-size: 1.6rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        margin-bottom: 1.3rem;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            color: rgba(var(--color_main), 1);
+        }
+    }
+}
+
+.sale_item {
+    display: flex;
+    align-items: center;
+    height: 55rem;
+    background: url(../images/backgrounds/bg-2.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    padding: 0 2rem 0 3.5rem;
+
+    .inner_text {
+        color: rgba(var(--color_white), .7);
+    }
+}
+
+.articles_section {
+    padding: 3rem 0;
 }
 
 @media only screen and (max-width: 768px) {
@@ -252,21 +305,4 @@ header {
             width: 100%;
         }
     }
-}
-
-.sale_item {
-    display: flex;
-    align-items: center;
-    height: 55rem;
-    background: url(../images/backgrounds/bg-2.jpg) no-repeat center center;
-    background-size: 100% 100%;
-    padding: 0 2rem 0 3.5rem;
-
-    .inner_text {
-        color: rgba(var(--color_white), .7);
-    }
-}
-
-.articles_section {
-    padding: 3rem 0;
 }
