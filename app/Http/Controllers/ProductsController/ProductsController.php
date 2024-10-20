@@ -19,7 +19,7 @@ class ProductsController extends Controller
 
     public function show($slug)
     {
-        $product = Product::where('slug->'.LaravelLocalization::getCurrentLocale(), $slug)->first();
+        $product = Product::where('slug->' . LaravelLocalization::getCurrentLocale(), $slug)->first();
         return view('pages.products.show', compact('product'));
     }
 }

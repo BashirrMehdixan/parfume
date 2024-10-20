@@ -1,7 +1,12 @@
 {
     "home": "Home",
+    "about_us": "Haqqımızda",
+    "about": "Haqqımızda",
+    "contact": "Contact",
     "brands": "Brands",
     "products": "Products",
+    "perfumes": "perfumes",
+    "perfume": "perfume",
     "shop_now": "Shop now",
     "best_selling": "Best selling products",
     "more": "More",
@@ -10,5 +15,6 @@
     "filter_by": "Filter by",
     "gender": "Gender",
     "submit": "Submit",
-    "read_more": "Read more"
+    "read_more": "Read more",
+    "pages": "Pages"
 }

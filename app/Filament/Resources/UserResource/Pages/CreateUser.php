@@ -14,4 +14,5 @@ class CreateUser extends CreateRecord
     {
         return static::getResource()::getUrl('index');
     }
+
 }

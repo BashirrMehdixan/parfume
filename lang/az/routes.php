@@ -9,4 +9,6 @@ return [
     "products_show" => "mehsullar/{slug}",
     "blog" => "bloq",
     "blog_show" => "bloq/{slug}",
+    "watches" => "saatlar",
+    "watches_show" => "saatlar/{slug}",
 ];

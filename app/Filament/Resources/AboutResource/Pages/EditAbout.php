@@ -11,6 +11,7 @@ use Filament\Resources\Pages\EditRecord;
 class EditAbout extends EditRecord
 {
     use Translatable;
+
     protected static string $resource = AboutResource::class;
 
     protected function getHeaderActions(): array
@@ -19,5 +20,10 @@ class EditAbout extends EditRecord
             DeleteAction::make(),
             LocaleSwitcher::make()
         ];
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        return static::getResource()::getUrl('index');
     }
 }

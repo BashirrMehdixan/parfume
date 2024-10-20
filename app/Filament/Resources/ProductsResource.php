@@ -29,6 +29,7 @@ use Illuminate\Support\Str;
 class ProductsResource extends Resource
 {
     use Translatable;
+
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -48,9 +49,11 @@ class ProductsResource extends Resource
                         ->readOnly()
                         ->required(),
                     Select::make('brand_id')
+                        ->native(false)
                         ->relationship('brand', 'name')
                         ->required(),
                     Select::make('gender')
+                        ->native()
                         ->options([
                             "male" => "Male",
                             "female" => "Female",
@@ -72,7 +75,7 @@ class ProductsResource extends Resource
                             ->image()
                             ->multiple()
                             ->imageEditor()
-                            ->directory('uploads/products')
+                            ->directory('uploads/images/products')
                             ->columnSpan('full')
                             ->required(),
                         Toggle::make('status'),

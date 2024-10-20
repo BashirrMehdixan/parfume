@@ -42,10 +42,12 @@ class AboutResource extends Resource
                     FileUpload::make('logo')
                         ->image()
                         ->imageEditor()
+                        ->directory('uploads/images')
                         ->required(),
                     FileUpload::make('favicon')
                         ->image()
                         ->imageEditor()
+                        ->directory('uploads/images')
                         ->required(),
                 ])->columnSpan(1),
             ])->columns(3);

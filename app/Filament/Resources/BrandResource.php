@@ -12,6 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
@@ -26,6 +27,8 @@ use Illuminate\Support\Str;
 
 class BrandResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Brand::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -52,7 +55,7 @@ class BrandResource extends Resource
                     FileUpload::make('image')
                         ->image()
                         ->imageEditor()
-                        ->directory('uploads/brands')
+                        ->directory('uploads/images/brands')
                         ->required(),
                     Toggle::make('status'),
                 ])->columnSpan(1)

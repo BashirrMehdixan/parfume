@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BlogResource\Pages;
-use App\Models\Blog;
+use App\Filament\Resources\WatchCategoryResource\Pages;
+use App\Models\WatchCategory;
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
@@ -21,17 +21,15 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class BlogResource extends Resource
+class WatchCategoryResource extends Resource
 {
     use Translatable;
 
-    protected static ?string $model = Blog::class;
+    protected static ?string $model = WatchCategory::class;
 
-    protected static ?string $slug = 'blogs';
+    protected static ?string $slug = 'watch-categories';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -40,38 +38,32 @@ class BlogResource extends Resource
         return $form
             ->schema([
                 Section::make()->schema([
-                    TextInput::make('title')
+                    TextInput::make('name')
                         ->required()
                         ->reactive()
                         ->afterStateUpdated(fn($state, callable $set) => $set('slug', Str::slug($state))),
                     TextInput::make('slug')
                         ->readOnly()
                         ->required()
-                        ->unique(Blog::class, 'slug', fn($record) => $record),
-                    Select::make('category_id')
-                        ->relationship('category', 'title')
-                        ->searchable()
-                        ->native(false)
-                        ->required(),
-                    RichEditor::make('description')
-                        ->required()->columnSpan('full'),
-                ])->columns(2)->columnSpan(2),
+                        ->unique(WatchCategory::class, 'slug', fn($record) => $record),
+                    RichEditor::make('description')->columnSpan('full'),
+                ])->columnSpan(2)->columns(2),
                 Section::make()->schema([
                     Placeholder::make('created_at')
                         ->label('Created Date')
-                        ->visibleOn('edit')
-                        ->content(fn(?Blog $record): string => $record?->created_at?->diffForHumans() ?? '-'),
+                        ->content(fn(?WatchCategory $record): string => $record?->created_at?->diffForHumans() ?? '-')
+                        ->visibleOn('edit'),
                     Placeholder::make('updated_at')
-                        ->visibleOn('edit')
                         ->label('Last Modified Date')
-                        ->content(fn(?Blog $record): string => $record?->updated_at?->diffForHumans() ?? '-'),
+                        ->content(fn(?WatchCategory $record): string => $record?->updated_at?->diffForHumans() ?? '-')
+                        ->visibleOn('edit'),
                     FileUpload::make('image')
                         ->image()
+                        ->imageEditor()
                         ->columnSpan('full')
-                        ->directory('uploads/images/blogs')
-                        ->required(),
-                    Toggle::make('status')
-                ])->columns(2)->columnSpan(1),
+                        ->directory('uploads/images/categories'),
+                    Toggle::make('status'),
+                ])->columnSpan(1)->columns(2),
             ])->columns(3);
     }
 
@@ -79,13 +71,19 @@ class BlogResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('slug')
+                    ->searchable()
+                    ->sortable(),
+
+                TextColumn::make('description'),
+
+                TextColumn::make('status'),
+
                 ImageColumn::make('image'),
-                TextColumn::make('title')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('category.title')
-                    ->searchable()
-                    ->sortable(),
             ])
             ->filters([
                 //
@@ -104,30 +102,14 @@ class BlogResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBlogs::route('/'),
-            'create' => Pages\CreateBlog::route('/create'),
-            'edit' => Pages\EditBlog::route('/{record}/edit'),
+            'index' => Pages\ListWatchCategories::route('/'),
+            'create' => Pages\CreateWatchCategory::route('/create'),
+            'edit' => Pages\EditWatchCategory::route('/{record}/edit'),
         ];
-    }
-
-    public static function getGlobalSearchEloquentQuery(): Builder
-    {
-        return parent::getGlobalSearchEloquentQuery()->with(['category']);
     }
 
     public static function getGloballySearchableAttributes(): array
     {
-        return ['title', 'slug', 'category.title'];
-    }
-
-    public static function getGlobalSearchResultDetails(Model $record): array
-    {
-        $details = [];
-
-        if ($record->category) {
-            $details['Category'] = $record->category->title;
-        }
-
-        return $details;
+        return ['name', 'slug'];
     }
 }

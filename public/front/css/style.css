@@ -108,6 +108,9 @@ img {
   padding: 0 1rem;
   transition: all 0.3s ease;
 }
+.breadcrumb li:first-letter {
+  text-transform: uppercase;
+}
 .breadcrumb li:not(:last-child):hover {
   color: rgba(var(--color_main), 1);
 }
@@ -431,6 +434,9 @@ header .navbar .nav-menu .nav-item {
   font-size: 1.6rem;
   font-weight: 700;
   transition: all 0.5s ease-in-out;
+}
+header .navbar .nav-menu .nav-item:first-letter {
+  text-transform: uppercase;
 }
 header .navbar .nav-menu .nav-item:hover {
   color: rgba(var(--color_main), 1);

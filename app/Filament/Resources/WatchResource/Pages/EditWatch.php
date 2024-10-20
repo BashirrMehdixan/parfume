@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Filament\Resources\SlideResource\Pages;
+namespace App\Filament\Resources\WatchResource\Pages;
 
-use App\Filament\Resources\SlideResource;
+use App\Filament\Resources\WatchResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\EditRecord;
 use Filament\Resources\Pages\EditRecord\Concerns\Translatable;
 
-class EditSlide extends EditRecord
+class EditWatch extends EditRecord
 {
     use Translatable;
 
-    protected static string $resource = SlideResource::class;
+    protected static string $resource = WatchResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
             DeleteAction::make(),
-            LocaleSwitcher::make(),
+            LocaleSwitcher::make()
         ];
     }
 

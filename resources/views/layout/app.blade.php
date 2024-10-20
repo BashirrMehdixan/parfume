@@ -33,7 +33,12 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('products.index') }}" class="nav-link">
-                            {{ __('products') }}
+                            {{ __('perfumes') }}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('watches.index') }}" class="nav-link">
+                            {{ __('watches') }}
                         </a>
                     </li>
                 </ul>
@@ -117,7 +122,7 @@
                         <div class="w_full w_md_50 w_lg_25">
                             <div class="footer_widget">
                                 <h5 class="footer_title">
-                                    Brands
+                                    {{ __('brands') }}
                                 </h5>
                                 <ul class="footer_list">
                                     @foreach($brands as $brand)
@@ -191,7 +196,7 @@
                         <div class="w_full w_md_50 w_lg_25">
                             <div class="footer_widget">
                                 <h5 class="footer_title">
-                                    Pages
+                                    {{ __('pages') }}
                                 </h5>
                                 <ul class="footer_list">
                                     <li>
@@ -206,11 +211,11 @@
                                     </li>
                                     <li>
                                         <a href="{{ route('products.index') }}">
-                                            {{ __('products') }}
+                                            {{ __('perfumes') }}
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('index') }}">
+                                        <a href="{{ route('watches.index') }}">
                                             {{ __('watches') }}
                                         </a>
                                     </li>
@@ -227,7 +232,7 @@
             </div>
         </div>
         <div class="copyright text_center">
-           &copy 2024 RT Parfume Inc. All rights reserved
+            &copy 2024 RT Parfume Inc. All rights reserved
         </div>
     </div>
 </footer>

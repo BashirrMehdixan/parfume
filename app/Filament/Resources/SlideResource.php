@@ -11,6 +11,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
@@ -24,6 +25,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SlideResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Slide::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -43,7 +46,7 @@ class SlideResource extends Resource
                     FileUpload::make('image')
                         ->image()
                         ->imageEditor()
-                        ->directory('uploads/slide')
+                        ->directory('uploads/images/slide')
                         ->required(),
                     Toggle::make('status')
                 ])->columnSpan(1)

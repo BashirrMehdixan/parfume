@@ -113,6 +113,10 @@ img {
         padding: 0 1rem;
         transition: all .3s ease;
 
+        &:first-letter {
+            text-transform: uppercase;
+        }
+
         &:not(:last-child) {
             &:hover {
                 color: rgba(var(--color_main), 1);

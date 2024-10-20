@@ -2,8 +2,11 @@
     "home": "Əsas səhifə",
     "about_us": "Haqqımızda",
     "about": "Haqqımızda",
+    "contact": "Əlaqə",
     "brands": "Brendlər",
     "products": "Məhsullar",
+    "perfumes": "parfümlər",
+    "perfume": "parfüm",
     "shop_now": "İndi al",
     "best_selling": "Ən çox satılanlar",
     "more": "Daha çox",
@@ -13,6 +16,7 @@
     "gender": "Cinsiyyət",
     "submit": "Təsdiqlə",
     "read_more": "Ətraflı",
-    "watches": "Saatlar"
+    "watches": "Saatlar",
+    "pages": "Səhifələr"
 }
 

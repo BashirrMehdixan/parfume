@@ -11,6 +11,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
@@ -23,6 +24,8 @@ use Illuminate\Support\Str;
 
 class BlogCategoryResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = BlogCategory::class;
 
     protected static ?string $slug = 'blog-categories';
@@ -43,8 +46,6 @@ class BlogCategoryResource extends Resource
                         ->required()
                         ->unique(BlogCategory::class, 'slug', fn($record) => $record),
                     RichEditor::make('description')->columnSpan('full'),
-
-
                 ])->columns(2)->columnSpan(2),
 
                 Section::make()->schema([
@@ -59,7 +60,7 @@ class BlogCategoryResource extends Resource
                     FileUpload::make('image')
                         ->image()
                         ->imageEditor()
-                        ->directory('uploads/blogs')
+                        ->directory('uploads/images/blogs')
                         ->columnSpan('full'),
                     Toggle::make('status'),
 

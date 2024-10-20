@@ -3,17 +3,23 @@
 namespace App\Filament\Resources\ProductsResource\Pages;
 
 use App\Filament\Resources\ProductsResource;
-use Filament\Actions;
+use Filament\Actions\CreateAction;
+use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Resources\Pages\ListRecords\Concerns\Translatable;
 
 class ListProducts extends ListRecords
 {
+    use Translatable;
+
     protected static string $resource = ProductsResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
+            LocaleSwitcher::make(),
+
         ];
     }
 }

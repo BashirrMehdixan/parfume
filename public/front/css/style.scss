@@ -33,6 +33,11 @@ header {
 
             .nav-item {
                 font-size: 1.6rem;
+
+                &:first-letter {
+                    text-transform: uppercase;
+                }
+
                 font-weight: 700;
                 transition: all .5s ease-in-out;
 
