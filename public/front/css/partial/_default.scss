@@ -139,7 +139,7 @@ img {
 .social_networks {
     display: flex;
     gap: 1rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
 
     li {
         width: 4rem;
@@ -149,6 +149,7 @@ img {
         justify-content: center;
         border-radius: 50%;
         color: rgba(var(--color_white), 1);
+
         i {
             flex-shrink: 0;
         }

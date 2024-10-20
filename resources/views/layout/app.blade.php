@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="{{ LaravelLocalization::getCurrentLocale() }}">
 <head>
-    @vite([])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ asset('storage/'.$about->favicon) }}" type="image/x-icon">
@@ -65,53 +64,170 @@
 
 <footer>
     <div class="container">
-        <div class="flex_item">
-            <div class="w_full w_md_50 w_lg_33">
-                <ul class="footer_widget">
-                    <li class="footer_logo">
-                        <a href="{{ route('index') }}">
-                            <img src="{{ asset('storage/'.$about->logo) }}" alt="">
-                        </a>
-                    </li>
-                    <li>
-                        <h4 class="footer_title">
-                            Subscribe to Our Newsletter:
-                        </h4>
-                        <p class="inner_text">
-                            Receive Updates on New Arrivals and Special Promotions!
-                        </p>
-                    </li>
-                    <li>
-                        <form action="">
-                            <input type="text" class="form_control" placeholder="Your email here">
-                        </form>
-                    </li>
-                    <li>
-                        <ul class="social_networks">
-                            <li class="twitter">
-                                <a href="">
-                                    <i data-lucide="twitter"></i>
-                                </a>
-                            </li>
-                            <li class="facebook">
-                                <a href="">
-                                    <i data-lucide="facebook"></i>
-                                </a>
-                            </li>
-                            <li class="linkedin">
-                                <a href="">
-                                    <i data-lucide="linkedin"></i>
-                                </a>
-                            </li>
-                            <li class="instagram">
-                                <a href="">
-                                    <i data-lucide="instagram"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+        <div class="footer_top">
+            <div class="footer_logo">
+                <a href="{{ route('index') }}">
+                    <img src="{{ asset('storage/'.$about->logo) }}" alt="">
+                </a>
             </div>
+            <div class="flex_item">
+                <div class="w_full w_md_50 w_lg_33">
+                    <ul class="footer_widget">
+                        <li>
+                            <h4 class="footer_title fs_24">
+                                Subscribe to Our Newsletter:
+                            </h4>
+                            <p class="inner_text">
+                                Receive Updates on New Arrivals and Special Promotions!
+                            </p>
+                        </li>
+                        <li>
+                            <form action="">
+                                <input type="text" class="form_control" placeholder="Your email here">
+                            </form>
+                        </li>
+                        <li>
+                            <ul class="social_networks">
+                                <li class="twitter">
+                                    <a href="">
+                                        <i data-lucide="twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="facebook">
+                                    <a href="">
+                                        <i data-lucide="facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="linkedin">
+                                    <a href="">
+                                        <i data-lucide="linkedin"></i>
+                                    </a>
+                                </li>
+                                <li class="instagram">
+                                    <a href="">
+                                        <i data-lucide="instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w_full w_md_50 w_lg_66">
+                    <div class="flex_item">
+                        <div class="w_full w_md_50 w_lg_25">
+                            <div class="footer_widget">
+                                <h5 class="footer_title">
+                                    Brands
+                                </h5>
+                                <ul class="footer_list">
+                                    @foreach($brands as $brand)
+                                        <li>
+                                            <a href="{{ route('brands.show', $brand->slug) }}">
+                                                {{ $brand->name }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w_full w_md_50 w_lg_25">
+                            <div class="footer_widget">
+                                <h5 class="footer_title">
+                                    Shopping
+                                </h5>
+                                <ul class="footer_list">
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            Payments
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            Delivery options
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            Buyer protection
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w_full w_md_50 w_lg_25">
+                            <div class="footer_widget">
+                                <h5 class="footer_title">
+                                    Customer care
+                                </h5>
+                                <ul class="footer_list">
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            Help center
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            Terms & Conditions
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            Privacy policy
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            returns and refund
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            survey & feedback
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w_full w_md_50 w_lg_25">
+                            <div class="footer_widget">
+                                <h5 class="footer_title">
+                                    Pages
+                                </h5>
+                                <ul class="footer_list">
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            {{ __('about_us') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('brands.index') }}">
+                                            {{ __('brands') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('products.index') }}">
+                                            {{ __('products') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            {{ __('watches') }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('index') }}">
+                                            {{ __('contact') }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright text_center">
+           &copy 2024 RT Parfume Inc. All rights reserved
         </div>
     </div>
 </footer>
