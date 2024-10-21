@@ -10,7 +10,7 @@ use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Concerns\Translatable;
@@ -22,8 +22,6 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class ProductsResource extends Resource
@@ -33,6 +31,7 @@ class ProductsResource extends Resource
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationParentItem = "Collection";
 
     public static function form(Form $form): Form
     {
@@ -52,6 +51,9 @@ class ProductsResource extends Resource
                         ->native(false)
                         ->relationship('brand', 'name')
                         ->required(),
+                    Select::make('collection_id')
+                        ->native(false)
+                        ->relationship('collection', 'name'),
                     Select::make('gender')
                         ->native()
                         ->options([
@@ -75,12 +77,13 @@ class ProductsResource extends Resource
                             ->image()
                             ->multiple()
                             ->imageEditor()
+                            ->panelLayout('grid')
                             ->directory('uploads/images/products')
                             ->columnSpan('full')
                             ->required(),
-                        Toggle::make('status'),
-                        Toggle::make('special_offer'),
-                        Toggle::make('best_selling'),
+                        ToggleButtons::make('special_offer')->boolean()->grouped(),
+                        ToggleButtons::make('best_selling')->boolean()->grouped(),
+                        ToggleButtons::make('status')->boolean()->grouped(),
                     ])
                     ->columns(2)
                     ->columnSpan(1)
@@ -111,6 +114,9 @@ class ProductsResource extends Resource
                 TextColumn::make('created_at')
                     ->sortable(),
             ])
+            ->emptyStateIcon('heroicon-o-bookmark')
+            ->emptyStateHeading('No product found.')
+            ->emptyStateDescription('You can create one by clicking the button below.')
             ->filters([
                 //
             ])

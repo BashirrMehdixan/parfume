@@ -10,9 +10,15 @@ header {
     width: 100%;
     z-index: 2;
 
+    .overlay {
+        opacity: 0;
+        pointer-events: none;
+    }
+
     .navbar {
         display: flex;
         align-items: center;
+
         justify-content: space-between;
 
         .logo {
@@ -25,11 +31,16 @@ header {
             }
         }
 
+
         .nav-menu {
             display: flex;
             align-items: center;
             gap: 1.6rem;
             flex-shrink: 0;
+
+            .mobile_header {
+                display: none;
+            }
 
             .nav-item {
                 font-size: 1.6rem;
@@ -48,6 +59,9 @@ header {
         }
 
         .right-nav {
+            display: flex;
+            align-items: center;
+
             .lang_box {
                 position: relative;
 
@@ -89,7 +103,6 @@ header {
                     }
                 }
             }
-
         }
     }
 }
@@ -138,7 +151,6 @@ header {
         }
     }
 }
-
 
 .best_selling {
     padding: 5rem 0;
@@ -308,6 +320,58 @@ footer {
         &:nth-child(6),
         &:nth-child(7) {
             width: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    header {
+        .logo {
+            max-width: 11rem;
+        }
+
+        .overlay {
+            &.active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+
+        .navbar {
+            position: relative;
+
+
+            .nav-menu {
+                flex-direction: column;
+                align-items: flex-start;
+                position: absolute;
+                left: 0;
+                background: rgba(var(--color_white), 1);
+                width: 100%;
+                padding: 0 1.6rem;
+                z-index: 2;
+                height: 100vh;
+                top: 0;
+                transform: translate(-106%, 0);
+                transition: all .5s;
+
+                .mobile_header {
+                    position: relative;
+                    display: flex;
+                    width: 100%;
+
+                    .btn_close {
+                        position: absolute;
+                        top: 1.6rem;
+                        right: 0;
+                        color: rgba(var(--color_main), 1);
+                    }
+                }
+
+                &.active {
+                    transform: translate(-6%, 0);
+                }
+            }
         }
     }
 }

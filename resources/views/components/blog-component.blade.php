@@ -2,7 +2,7 @@
 <div class="blog_card">
     <div class="blog_image">
         <a href="{{ route('blogs.show',$blog->slug) }}">
-            <img src="{{ asset('storage/'.$blog->image) }}" alt="{{ $blog->title }}">
+            <img src="{{ asset('storage/'.$blog->image[0]) }}" alt="{{ $blog->title }}">
         </a>
     </div>
     <div class="blog_body">

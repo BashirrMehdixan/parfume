@@ -2,13 +2,16 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BrandResource\Pages;
-use App\Models\Brand;
+use App\Filament\Resources\CollectionResource\Pages;
+use App\Filament\Resources\CollectionResource\Pages\CreateCollection;
+use App\Filament\Resources\CollectionResource\Pages\EditCollection;
+use App\Filament\Resources\CollectionResource\Pages\ListCollections;
+use App\Filament\Resources\CollectionResource\RelationManagers;
+use App\Models\Collection;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
@@ -24,14 +27,13 @@ use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
-class BrandResource extends Resource
+class CollectionResource extends Resource
 {
     use Translatable;
 
-    protected static ?string $model = Brand::class;
+    protected static ?string $model = Collection::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationParentItem = "Collection";
+    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
 
     public static function form(Form $form): Form
     {
@@ -39,26 +41,21 @@ class BrandResource extends Resource
             ->schema([
                 Section::make()->schema([
                     TextInput::make('name')
-                        ->live(true)
+                        ->live(onBlur: true)
                         ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))
                         ->required(),
                     TextInput::make('slug')
                         ->readOnly()
                         ->unique(ignoreRecord: true)
                         ->required(),
-                    RichEditor::make('description')
-                        ->columnSpan('full')
-                ])
-                    ->columns(2)
-                    ->columnSpan(2),
+                    RichEditor::make('description')->required()->columnSpan('full'),
+                ])->columns(2)->columnSpan(2),
                 Section::make()->schema([
                     FileUpload::make('image')
                         ->image()
-                        ->imageEditor()
-                        ->directory('uploads/images/brands'),
-                    ToggleButtons::make('status')->boolean()->grouped(),
+                        ->imageEditor(),
+                    ToggleButtons::make('status')->boolean()->grouped()
                 ])->columnSpan(1)
-
             ])->columns(3);
     }
 
@@ -67,16 +64,13 @@ class BrandResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('image'),
-                TextColumn::make('name')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('slug')
-                    ->searchable()
-                    ->sortable(),
-                ToggleColumn::make('status')
+                TextColumn::make('name')->searchable()->sortable(),
+                TextColumn::make('slug')->searchable()->sortable(),
+                ToggleColumn::make('status'),
+
             ])
             ->emptyStateIcon('heroicon-o-bookmark')
-            ->emptyStateHeading('No brand found.')
+            ->emptyStateHeading('No product categories found.')
             ->emptyStateDescription('You can create one by clicking the button below.')
             ->filters([
                 //
@@ -102,9 +96,9 @@ class BrandResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBrands::route('/'),
-            'create' => Pages\CreateBrand::route('/create'),
-            'edit' => Pages\EditBrand::route('/{record}/edit'),
+            'index' => ListCollections::route('/'),
+            'create' => CreateCollection::route('/create'),
+            'edit' => EditCollection::route('/{record}/edit'),
         ];
     }
 }

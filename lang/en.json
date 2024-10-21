@@ -16,5 +16,12 @@
     "gender": "Gender",
     "submit": "Submit",
     "read_more": "Read more",
-    "pages": "Pages"
+    "pages": "Pages",
+
+    "new_category": "New category",
+    "new_product": "New product",
+    "new_brand": "New brand",
+    "new_slide": "New slide",
+    "new_user": "New user",
+    "new_blog": "New blog"
 }

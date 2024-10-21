@@ -18,6 +18,10 @@
   --color_blue: 19, 208, 227;
 }
 
+body.scrolling {
+  overflow: hidden;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -375,11 +379,6 @@ img {
   font-size: 1.6rem;
 }
 
-@media only screen and (min-width: 992px) {
-  .blog_card .blog_body .inner_text {
-    min-height: 12.3rem;
-  }
-}
 .btn {
   display: inline-block;
   font-size: 1.6rem;
@@ -407,9 +406,18 @@ img {
   border: 1px solid rgba(var(--color_main), 1);
 }
 
+@media only screen and (min-width: 992px) {
+  .btn.btn_mobile {
+    display: none;
+  }
+}
 header {
   width: 100%;
   z-index: 2;
+}
+header .overlay {
+  opacity: 0;
+  pointer-events: none;
 }
 header .navbar {
   display: flex;
@@ -430,6 +438,9 @@ header .navbar .nav-menu {
   gap: 1.6rem;
   flex-shrink: 0;
 }
+header .navbar .nav-menu .mobile_header {
+  display: none;
+}
 header .navbar .nav-menu .nav-item {
   font-size: 1.6rem;
   font-weight: 700;
@@ -440,6 +451,10 @@ header .navbar .nav-menu .nav-item:first-letter {
 }
 header .navbar .nav-menu .nav-item:hover {
   color: rgba(var(--color_main), 1);
+}
+header .navbar .right-nav {
+  display: flex;
+  align-items: center;
 }
 header .navbar .right-nav .lang_box {
   position: relative;
@@ -632,6 +647,46 @@ footer .copyright {
   }
   .collection_row:first-child, .collection_row:nth-child(2), .collection_row:nth-child(3), .collection_row:nth-child(4), .collection_row:nth-child(5), .collection_row:nth-child(6), .collection_row:nth-child(7) {
     width: 100%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  header .logo {
+    max-width: 11rem;
+  }
+  header .overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  header .navbar {
+    position: relative;
+  }
+  header .navbar .nav-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    left: 0;
+    background: rgba(var(--color_white), 1);
+    width: 100%;
+    padding: 0 1.6rem;
+    z-index: 2;
+    height: 100vh;
+    top: 0;
+    transform: translate(-106%, 0);
+    transition: all 0.5s;
+  }
+  header .navbar .nav-menu .mobile_header {
+    position: relative;
+    display: flex;
+    width: 100%;
+  }
+  header .navbar .nav-menu .mobile_header .btn_close {
+    position: absolute;
+    top: 1.6rem;
+    right: 0;
+    color: rgba(var(--color_main), 1);
+  }
+  header .navbar .nav-menu.active {
+    transform: translate(-6%, 0);
   }
 }
 

@@ -16,6 +16,7 @@ class Product extends Model
         'name',
         'slug',
         'brand_id',
+        'collection_id',
         'gender',
         'description',
         'image',
@@ -40,4 +41,8 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
+    public function collection(): BelongsTo
+    {
+        return $this->belongsTo(Collection::class);
+    }
 }

@@ -20,9 +20,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::get(LaravelLocalization::transRoute('routes.brands_show'), [BrandsController::class, 'show'])->name('brands.show');
     // Categories
     Route::get(LaravelLocalization::transRoute('routes.categories'), [CategoriesController::class, 'index'])->name('categories.index');
-    // Watches
-    Route::get(LaravelLocalization::transRoute('routes.watches'), [WatchesController::class, 'index'])->name('watches.index');
-    Route::get(LaravelLocalization::transRoute('routes.watches_show'), [WatchesController::class, 'show'])->name('watches.show');
     // Blog
     Route::get(LaravelLocalization::transRoute('routes.blog'), [BlogController::class, 'index'])->name('blogs.index');
     Route::get(LaravelLocalization::transRoute('routes.blog_show'), [BlogController::class, 'show'])->name('blogs.show');

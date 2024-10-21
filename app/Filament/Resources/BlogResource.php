@@ -11,6 +11,7 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
@@ -31,6 +32,8 @@ class BlogResource extends Resource
 
     protected static ?string $model = Blog::class;
 
+    protected static ?string $navigationParentItem = 'Blog Categories';
+
     protected static ?string $slug = 'blogs';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -43,6 +46,7 @@ class BlogResource extends Resource
                     TextInput::make('title')
                         ->required()
                         ->reactive()
+                        ->live(true)
                         ->afterStateUpdated(fn($state, callable $set) => $set('slug', Str::slug($state))),
                     TextInput::make('slug')
                         ->readOnly()
@@ -50,6 +54,7 @@ class BlogResource extends Resource
                         ->unique(Blog::class, 'slug', fn($record) => $record),
                     Select::make('category_id')
                         ->relationship('category', 'title')
+                        ->columnSpan('full')
                         ->searchable()
                         ->native(false)
                         ->required(),
@@ -67,10 +72,14 @@ class BlogResource extends Resource
                         ->content(fn(?Blog $record): string => $record?->updated_at?->diffForHumans() ?? '-'),
                     FileUpload::make('image')
                         ->image()
+                        ->multiple()
+                        ->imageEditor()
                         ->columnSpan('full')
+                        ->panelLayout('grid')
+                        ->reorderable()
                         ->directory('uploads/images/blogs')
                         ->required(),
-                    Toggle::make('status')
+                    ToggleButtons::make('status')->boolean()->grouped(),
                 ])->columns(2)->columnSpan(1),
             ])->columns(3);
     }
@@ -79,14 +88,17 @@ class BlogResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image'),
+                ImageColumn::make('image')
+                    ->stacked(),
                 TextColumn::make('title')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('category.title')
                     ->searchable()
                     ->sortable(),
-            ])
+            ])->emptyStateIcon('heroicon-o-bookmark')
+            ->emptyStateHeading('No blog found.')
+            ->emptyStateDescription('You can create one by clicking the button below.')
             ->filters([
                 //
             ])

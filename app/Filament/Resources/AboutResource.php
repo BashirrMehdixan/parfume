@@ -11,10 +11,12 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -26,7 +28,7 @@ class AboutResource extends Resource
 
     protected static ?string $slug = 'about';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-information-circle';
 
     public static function form(Form $form): Form
     {
@@ -57,7 +59,7 @@ class AboutResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('logo'),
+                ImageColumn::make('logo'),
                 TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
@@ -65,19 +67,18 @@ class AboutResource extends Resource
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('description'),
-                TextColumn::make('favicon'),
             ])
+            ->emptyStateIcon('heroicon-o-bookmark')
+            ->emptyStateHeading('No item found.')
+            ->emptyStateDescription('You can create one by clicking the button below.')
             ->filters([
                 //
             ])
             ->actions([
                 EditAction::make(),
-                DeleteAction::make(),
             ])
             ->bulkActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+                //
             ]);
     }
 

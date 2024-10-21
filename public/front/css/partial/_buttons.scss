@@ -28,3 +28,11 @@
         border: 1px solid rgba(var(--color_main), 1);
     }
 }
+
+@media only screen and (min-width: 992px) {
+    .btn {
+        &.btn_mobile {
+            display: none;
+        }
+    }
+}

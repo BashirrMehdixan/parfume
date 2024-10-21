@@ -15,8 +15,9 @@ return new class extends Migration {
             $table->string('name');
             $table->string('slug')->unique();
             $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade');
+            $table->foreignId('collection_id')->constrained('collections')->onDelete('cascade');
             $table->string('gender')->default('unisex');
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->json('image');
             $table->decimal('price')->nullable();
             $table->decimal('discount')->nullable();

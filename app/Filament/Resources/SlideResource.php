@@ -10,10 +10,12 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\ImageColumn;
@@ -29,7 +31,7 @@ class SlideResource extends Resource
 
     protected static ?string $model = Slide::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-adjustments-horizontal';
 
     public static function form(Form $form): Form
     {
@@ -48,7 +50,7 @@ class SlideResource extends Resource
                         ->imageEditor()
                         ->directory('uploads/images/slide')
                         ->required(),
-                    Toggle::make('status')
+                    ToggleButtons::make('status')->boolean()->grouped()
                 ])->columnSpan(1)
             ])->columns(3);
     }
@@ -62,12 +64,17 @@ class SlideResource extends Resource
                     ->searchable(),
                 ToggleColumn::make('status')
 
-            ])->reorderable('order')
+            ])
+            ->emptyStateIcon('heroicon-o-bookmark')
+            ->emptyStateHeading('No slide found.')
+            ->emptyStateDescription('You can create one by clicking the button below.')
+            ->reorderable('order')
             ->filters([
                 //
             ])
             ->actions([
                 EditAction::make(),
+                DeleteAction::make()
             ])
             ->bulkActions([
                 BulkActionGroup::make([

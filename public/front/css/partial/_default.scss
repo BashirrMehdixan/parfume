@@ -17,6 +17,12 @@
     --color_blue: 19, 208, 227;
 }
 
+body {
+    &.scrolling {
+        overflow: hidden;
+    }
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }

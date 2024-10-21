@@ -15,12 +15,23 @@
 <body>
 <header>
     <div class="container">
+        <div class="overlay"></div>
         <div class="navbar">
             <a href="{{ route('index') }}" class="logo">
                 <img src="{{ asset('storage/'.$about->logo) }}" title="{{ $about->name }}" alt="{{ $about->name }}">
             </a>
             <nav>
                 <ul class="nav-menu">
+                    <li class="mobile_header">
+                        <div class="logo">
+                            <a href="{{ route('index') }}">
+                                <img src="{{ asset('storage/'.$about->logo) }}" alt="{{ $about->name }}">
+                            </a>
+                        </div>
+                        <button class="btn btn_close">
+                            <i data-lucide="circle-x"></i>
+                        </button>
+                    </li>
                     <li class="nav-item">
                         <a href="{{ route('index') }}" class="nav-link">
                             {{ __('home') }}
@@ -34,11 +45,6 @@
                     <li class="nav-item">
                         <a href="{{ route('products.index') }}" class="nav-link">
                             {{ __('perfumes') }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('watches.index') }}" class="nav-link">
-                            {{ __('watches') }}
                         </a>
                     </li>
                 </ul>
@@ -60,6 +66,9 @@
                         @endforeach
                     </ul>
                 </div>
+                <button class="btn btn_mobile">
+                    <i data-lucide="menu"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -212,11 +221,6 @@
                                     <li>
                                         <a href="{{ route('products.index') }}">
                                             {{ __('perfumes') }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('watches.index') }}">
-                                            {{ __('watches') }}
                                         </a>
                                     </li>
                                     <li>

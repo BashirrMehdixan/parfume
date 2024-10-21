@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Filament\Resources\WatchResource\Pages;
+namespace App\Filament\Resources\CollectionResource\Pages;
 
-use App\Filament\Resources\WatchResource;
+use App\Filament\Resources\CollectionResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\LocaleSwitcher;
 use Filament\Resources\Pages\EditRecord;
 use Filament\Resources\Pages\EditRecord\Concerns\Translatable;
 
-class EditWatch extends EditRecord
+class EditCollection extends EditRecord
 {
     use Translatable;
 
-    protected static string $resource = WatchResource::class;
+    protected static string $resource = CollectionResource::class;
 
     protected function getHeaderActions(): array
     {
@@ -20,10 +20,5 @@ class EditWatch extends EditRecord
             DeleteAction::make(),
             LocaleSwitcher::make()
         ];
-    }
-
-    protected function getRedirectUrl(): string
-    {
-        return static::getResource()::getUrl('index');
     }
 }
