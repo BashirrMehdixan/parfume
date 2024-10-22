@@ -107,10 +107,12 @@
             <div class="best_selling glide">
                 <div class="glide__track" data-glide-el="track">
                     <ul class="glide__slides">
-                        @if($products->count() > 0)
-                            @foreach($products as $product)
+                        @if($bestSell->count() > 0)
+                            @foreach($bestSell as $product)
                                 <li class="glide__slide">
-                                    <x-product-card :product="$product"/>
+                                    <x-product-card
+                                        :url="route('products.show', ['cat'=>'perfumes', 'slug'=>$product->slug])"
+                                        :product="$product"/>
                                 </li>
                             @endforeach
                         @endif
@@ -118,10 +120,10 @@
                 </div>
                 <div class="glide__arrows" data-glide-el="controls">
                     <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                        <
+                        <i data-lucide="chevron-left"></i>
                     </button>
                     <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                        >
+                        <i data-lucide="chevron-right"></i>
                     </button>
                 </div>
             </div>
@@ -140,7 +142,6 @@
                         <x-brand-card :brand="$brand"/>
                     </div>
                 @empty
-
                 @endforelse
             </div>
         </div>

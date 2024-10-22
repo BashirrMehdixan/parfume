@@ -12,7 +12,7 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::orderBy('created_at', 'desc')->where('status', 1)->get();
+        $products = Product::orderBy('created_at', 'desc')->where('status', 1)->where('collection_id', 2)->paginate(12);
         $brands = Brand::where('status', 1)->get();
         return view('pages.products.index', compact('products', 'brands'));
     }

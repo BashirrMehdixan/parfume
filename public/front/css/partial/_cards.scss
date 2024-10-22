@@ -1,9 +1,9 @@
 .product_card {
-    background: #121212;
     border-radius: 1rem;
     text-align: center;
     padding: 1.6rem 0;
     transition: all .2s ease-in;
+    border: 1px solid rgba(var(--color_main), 1);
 
     * {
         font-size: 2rem;
@@ -23,6 +23,7 @@
 
     .card_body {
         .p_title {
+            color: rgba(var(--color_black), 1);
             font-weight: 600;
             transition: all .5s ease-in;
         }
@@ -42,6 +43,11 @@
                 }
             }
         }
+
+        .quantity {
+            color: rgba(var(--color_black), 1);
+            font-weight: 500;
+        }
     }
 
     &:hover {
@@ -58,17 +64,40 @@
 }
 
 .collection_item {
+    position: relative;
     width: 100%;
     height: 46rem;
-    display: flex;
-    align-items: flex-end;
-    font-size: 2rem;
-    font-weight: 500;
     padding: 1rem;
     background-size: 100% 100%;
     border-radius: 1rem;
     overflow: hidden;
     transition: all .3s ease;
+
+    .brand_title {
+        position: absolute;
+        font-size: 4rem;
+        font-weight: 600;
+        color: rgba(var(--color_main), 1);
+        left: 50%;
+        top: 50%;
+        transition: all .3s ease;
+        transform: translate(-50%, -50%) scale(0);
+        z-index: 2;
+    }
+
+    .overlay {
+        opacity: 0;
+    }
+
+    &:hover {
+        .overlay {
+            opacity: .7;
+        }
+
+        .brand_title {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
 }
 
 .blog_card {

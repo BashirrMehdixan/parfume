@@ -25,6 +25,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class BlogResource extends Resource
 {
@@ -51,7 +52,7 @@ class BlogResource extends Resource
                     TextInput::make('slug')
                         ->readOnly()
                         ->required()
-                        ->unique(Blog::class, 'slug', fn($record) => $record),
+                        ->unique(Blog::class, 'slug->'.LaravelLocalization::getCurrentLocale(), fn($record) => $record),
                     Select::make('category_id')
                         ->relationship('category', 'title')
                         ->columnSpan('full')

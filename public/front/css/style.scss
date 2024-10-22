@@ -156,13 +156,14 @@ header {
     padding: 5rem 0;
 }
 
-.filter_box {
-    display: flex;
+.filter_box.flex_item {
     align-items: center;
+    justify-content: space-between;
     gap: 2rem;
 
     * {
         font-size: 1.6rem;
+        font-weight: 500;
     }
 
     .filter_list {
@@ -182,14 +183,17 @@ header {
                 width: max-content;
                 left: 0;
                 top: 2.5rem;
-                border: 1px solid rgba(var(--color_main), 1);
-                border-radius: .8rem;
+                box-shadow: rgba(var(--color_dark_black), .5) 0 .8rem 2.4rem;
+                border-radius: .5rem;
+                background-color: rgba(var(--color_white), 1);
                 transform-origin: top;
                 transition: all .5s ease-in-out;
-                transform: scaleY(0);
+                opacity: 0;
+                transform: translate(-15%, 25%);
 
                 &.active {
-                    transform: scaleY(1);
+                    opacity: 1;
+                    transform: translate(-15%, 5%);
                 }
 
                 .btn {
@@ -200,7 +204,9 @@ header {
                         border-radius: .8rem;
 
                         &:hover, &.selected {
+                            border-radius: 0;
                             background: rgba(var(--color_main), 1);
+                            color: rgba(var(--color_white), 1);
                         }
                     }
                 }
@@ -371,6 +377,29 @@ footer {
                 &.active {
                     transform: translate(-6%, 0);
                 }
+            }
+        }
+    }
+}
+
+.detail_glide {
+    .glide__bullets {
+        bottom: 0;
+        transform: translate(-50%, 25%);
+
+        .glide__bullet {
+            width: 6rem;
+            height: 6rem;
+            border-radius: .5rem;
+            border: 1px solid transparent;
+            &.glide__bullet--active {
+                border: 1px solid rgba(var(--color_main), 1);
+            }
+            img {
+                height: 100%;
+                object-fit: cover;
+                margin-inline: auto;
+
             }
         }
     }

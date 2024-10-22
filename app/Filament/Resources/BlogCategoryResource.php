@@ -24,6 +24,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class BlogCategoryResource extends Resource
 {
@@ -49,7 +50,7 @@ class BlogCategoryResource extends Resource
                     TextInput::make('slug')
                         ->readOnly()
                         ->required()
-                        ->unique(BlogCategory::class, 'slug', fn($record) => $record),
+                        ->unique(BlogCategory::class, 'slug->'.LaravelLocalization::getCurrentLocale(), fn($record) => $record),
                     RichEditor::make('description')->columnSpan('full'),
                 ])->columns(2)->columnSpan(2),
 

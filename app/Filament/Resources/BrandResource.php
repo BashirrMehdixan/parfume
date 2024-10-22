@@ -23,6 +23,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class BrandResource extends Resource
 {
@@ -44,7 +45,7 @@ class BrandResource extends Resource
                         ->required(),
                     TextInput::make('slug')
                         ->readOnly()
-                        ->unique(ignoreRecord: true)
+                        ->unique(Brand::class, 'slug->' . LaravelLocalization::getCurrentLocale(), ignoreRecord: true)
                         ->required(),
                     RichEditor::make('description')
                         ->columnSpan('full')

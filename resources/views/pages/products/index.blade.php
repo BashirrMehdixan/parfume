@@ -5,32 +5,34 @@
     </div>
     <section class="products_section section_padding">
         <div class="container">
-            <ul class="filter_box">
-                <li>
-                    Filter by
-                </li>
+            <ul class="filter_box flex_item">
                 <li>
                     <form action="">
                         <ul class="filter_list">
                             <li>
+                                {{ __('filter_by') }}:
+                            </li>
+                            <li>
                                 <ul class="filter_item">
-                                    <span class="active_filter">Gender</span>
+                                    <span class="active_filter">{{ __('gender') }}</span>
                                     <div class="filter_buttons">
                                         <button class="btn btn_filter" data-gender="male">
-                                            Male
+                                            {{ __('male') }}
                                         </button>
                                         <button class="btn btn_filter" data-gender="female">
-                                            Female
+                                            {{ __('female') }}
                                         </button>
                                         <button class="btn btn_filter" data-gender="unisex">
-                                            Unisex
+                                            {{ __('unisex') }}
                                         </button>
                                     </div>
                                 </ul>
                             </li>
                             <li>
                                 <ul class="filter_item">
-                                    <span class="active_filter">Brands</span>
+                                    <span class="active_filter">
+                                        {{ __('brands') }}
+                                    </span>
                                     @foreach($brands as $brand)
                                         <div class="filter_buttons">
                                             <button class="btn btn_filter" data-brand="{{$brand->id}}">
@@ -41,8 +43,26 @@
                                 </ul>
                             </li>
                             <button class="btn filter_submit">
-                                Submit
+                                {{ __('submit') }}
                             </button>
+                        </ul>
+                    </form>
+                </li>
+                <li class="filter_list">
+                    <form action="">
+                        <ul class="filter_item">
+                            <span class="active_filter">{{ __('sort_by') }}</span>
+                            <div class="filter_buttons">
+                                <button class="btn btn_filter" data-gender="male">
+                                    {{ __('male') }}
+                                </button>
+                                <button class="btn btn_filter" data-gender="female">
+                                    {{ __('female') }}
+                                </button>
+                                <button class="btn btn_filter" data-gender="unisex">
+                                    {{ __('unisex') }}
+                                </button>
+                            </div>
                         </ul>
                     </form>
                 </li>
@@ -51,7 +71,7 @@
                 @if($products->count())
                     @foreach($products as $product)
                         <div class="w_full w_lg_25">
-                            <x-product-card :product="$product"/>
+                            <x-product-card :url="route('products.show', $product->slug)" :product="$product"/>
                         </div>
                     @endforeach
 

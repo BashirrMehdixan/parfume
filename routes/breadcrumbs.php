@@ -14,6 +14,12 @@ Breadcrumbs::for('brands', function (BreadcrumbTrail $trail) {
     $trail->push(__('brands'), route('brands.index'));
 
 });
+// Home > Brands > [Brand]
+Breadcrumbs::for('brand', function (BreadcrumbTrail $trail, $brand) {
+    $trail->parent('brands');
+    $trail->push($brand->name, route('brands.show', $brand));
+
+});
 // Home > Perfumes
 Breadcrumbs::for('products', function (BreadcrumbTrail $trail) {
     $trail->parent('index');

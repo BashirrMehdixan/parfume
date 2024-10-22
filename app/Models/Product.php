@@ -31,7 +31,6 @@ class Product extends Model
     protected array $translatable = [
         'name',
         'slug',
-        'gender',
         'description',
     ];
     protected $casts = ['image' => 'array'];

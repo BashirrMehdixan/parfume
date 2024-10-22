@@ -47,6 +47,11 @@
                             {{ __('perfumes') }}
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('watches.index') }}" class="nav-link">
+                            {{ __('watches') }}
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <div class="right-nav">

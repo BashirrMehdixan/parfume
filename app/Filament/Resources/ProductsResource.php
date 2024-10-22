@@ -16,13 +16,18 @@ use Filament\Forms\Set;
 use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\CheckboxColumn;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class ProductsResource extends Resource
 {
@@ -44,7 +49,7 @@ class ProductsResource extends Resource
                         ->required(),
                     TextInput::make('slug')
                         ->readOnly()
-                        ->unique(ignoreRecord: true)
+                        ->unique(Product::class, 'slug->'.LaravelLocalization::getCurrentLocale(), ignoreRecord: true)
                         ->readOnly()
                         ->required(),
                     Select::make('brand_id')
@@ -57,15 +62,14 @@ class ProductsResource extends Resource
                     Select::make('gender')
                         ->native()
                         ->options([
-                            "male" => "Male",
-                            "female" => "Female",
-                            "unisex" => "Unisex",
+                            "male" => __('male'),
+                            "female" => __('female'),
+                            "unisex" => __('unisex'),
                         ])->default('unisex'),
                     Textinput::make('price')
                         ->required(),
                     TextInput::make('discount'),
-                    TextInput::make('quantity')
-                        ->required(),
+                    TextInput::make('quantity'),
                     MarkdownEditor::make('description')
                         ->columnSpan('full')
                 ])
@@ -77,6 +81,7 @@ class ProductsResource extends Resource
                             ->image()
                             ->multiple()
                             ->imageEditor()
+                            ->reorderable()
                             ->panelLayout('grid')
                             ->directory('uploads/images/products')
                             ->columnSpan('full')
@@ -95,23 +100,24 @@ class ProductsResource extends Resource
         return $table
             ->columns([
                 ImageColumn::make('image')
+                    ->circular()
+                    ->limit(3)
+                    ->stacked()
                     ->label('Image'),
                 TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('slug'),
                 TextColumn::make('brand.name')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('collection.name')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('price')
                     ->searchable()
                     ->sortable(),
-                ToggleColumn::make('status')
-                    ->sortable(),
-                ToggleColumn::make('special_offer')
-                    ->sortable(),
-                ToggleColumn::make('best_selling')
-                    ->sortable(),
-                TextColumn::make('created_at')
+                CheckboxColumn::make('status')
                     ->sortable(),
             ])
             ->emptyStateIcon('heroicon-o-bookmark')
@@ -122,6 +128,7 @@ class ProductsResource extends Resource
             ])
             ->actions([
                 EditAction::make(),
+                DeleteAction::make()
             ])
             ->bulkActions([
                 BulkActionGroup::make([

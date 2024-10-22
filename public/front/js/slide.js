@@ -24,14 +24,12 @@ if (bestSelling) {
         }
     }).mount();
 }
+if (document.querySelector('.detail_glide')) {
 
-
-const obj = {
-    a: 1,
-    b: function () {
-        return this.a
-    },
-    c: () => {
-        return this.a
-    }
+    new Glide('.detail_glide', {
+        type: 'carousel',
+        startAt: 0,
+        perView: 1,
+        duration: 3000,
+    }).mount()
 }
