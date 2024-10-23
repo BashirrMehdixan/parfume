@@ -202,4 +202,17 @@ img {
     .content_box {
         padding: 2rem 1.6rem;
     }
+    .breadcrumb {
+
+        li {
+            font-size: 1.6rem;
+
+            &:not(:last-child) {
+                &::after {
+                    font-size: 1.6rem;
+                }
+
+            }
+        }
+    }
 }
