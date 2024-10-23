@@ -42,7 +42,7 @@ body {
     background: rgba(var(--color_main), .8);
 }
 
-a {
+a, span {
     color: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -90,6 +90,19 @@ img {
 
     &:focus {
         outline: none;
+    }
+
+    &.count_control {
+        max-width: 5rem;
+        padding-left: 1.9rem;
+        padding-right: 0;
+        -moz-appearance: textfield;
+        border: none;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
     }
 }
 

@@ -19,13 +19,30 @@
         background-color: rgba(var(--color_main), 1);
 
         &:hover {
-            background-color: rgba(var(--color_main), .7);
+            background-color: rgba(var(--color_main), .8);
         }
     }
 
     &.btn_main_outline {
         padding: .8rem 3.6rem;
         border: 1px solid rgba(var(--color_main), 1);
+    }
+
+    &.btn_actions {
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            pointer-events: none;
+        }
+    }
+
+    &.btn_add_cart {
+        width: 30rem;
+        padding: 1.3rem 1.6rem;
+        margin: 1.6rem auto 0 auto;
     }
 }
 

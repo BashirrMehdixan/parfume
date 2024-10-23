@@ -111,7 +111,7 @@
                             @foreach($bestSell as $product)
                                 <li class="glide__slide">
                                     <x-product-card
-                                        :url="route('products.show', ['cat'=>'perfumes', 'slug'=>$product->slug])"
+                                        :url="route('products.show',$product->slug)"
                                         :product="$product"/>
                                 </li>
                             @endforeach
@@ -120,10 +120,10 @@
                 </div>
                 <div class="glide__arrows" data-glide-el="controls">
                     <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                        <i data-lucide="chevron-left"></i>
+                        <i data-lucide="chevron-left" color="rgba(var(--color_main), 1)"></i>
                     </button>
                     <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                        <i data-lucide="chevron-right"></i>
+                        <i data-lucide="chevron-right" color="rgba(var(--color_main), 1)"></i>
                     </button>
                 </div>
             </div>
@@ -167,23 +167,21 @@
         </div>
     </section>
 
-    <section class="articles_section">
-        <div class="container">
-            <h2 class="section_title text_center">
-                Latest articles
-            </h2>
-            <div class="flex_item">
-                @forelse($blogs as $blog)
-                    <div class="w_full w_md_50 w_lg_33">
-                        <x-blog-component :blog="$blog"/>
-                    </div>
-                @empty
-                    <h4 class="section_title text_center">
-                        There's no blog
-                    </h4>
-                @endforelse
-            </div>
-        </div>
-    </section>
 
+    @if($blogs->count() > 0)
+        <section class="articles_section">
+            <div class="container">
+                <h2 class="section_title text_center">
+                    Latest articles
+                </h2>
+                <div class="flex_item">
+                    @foreach($blogs as $blog)
+                        <div class="w_full w_md_50 w_lg_33">
+                            <x-blog-component :blog="$blog"/>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
 @endsection

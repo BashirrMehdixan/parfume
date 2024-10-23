@@ -392,9 +392,11 @@ footer {
             height: 6rem;
             border-radius: .5rem;
             border: 1px solid transparent;
+
             &.glide__bullet--active {
                 border: 1px solid rgba(var(--color_main), 1);
             }
+
             img {
                 height: 100%;
                 object-fit: cover;
@@ -403,4 +405,38 @@ footer {
             }
         }
     }
+}
+
+.detail_content {
+    .inner_text {
+        font-size: 1.8rem;
+    }
+
+    .product_price_wrap {
+        display: flex;
+        align-items: center;
+        gap: 1.6rem;
+
+        .price {
+            font-size: 2.3rem;
+            font-weight: 700;
+
+            &.old_price {
+                text-decoration: .18rem line-through solid gray;
+                color: rgba(var(--color_dark_black), .6);
+            }
+
+            &.discount {
+                color: rgba(var(--color_main), 1);
+            }
+        }
+    }
+}
+
+.left_actions {
+    border: 1px solid rgba(var(--color_main), 1);
+}
+
+.left_actions, .right_actions {
+    margin-top: 1.6rem;
 }

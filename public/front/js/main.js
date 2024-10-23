@@ -42,3 +42,16 @@ btnClose.addEventListener('click', () => {
     document.body.classList.remove('scrolling');
 })
 
+const actionBtns = document.querySelectorAll('.btn_actions');
+const countInput = document.querySelector('.count_control');
+actionBtns.forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        if (e.target.classList.contains('btn_increment')) {
+            countInput.value = Number(countInput.value) + 1;
+        } else if (e.target.classList.contains('btn_decrement') && countInput.value > 1) {
+            countInput.value = Number(countInput.value) - 1;
+        }
+    })
+})
+

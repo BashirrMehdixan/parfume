@@ -26,6 +26,14 @@
     display: none;
 }
 
+.flex {
+    display: flex;
+}
+
+.justify_between {
+    justify-content: space-between;
+}
+
 .justify_center {
     justify-content: center;
 }
