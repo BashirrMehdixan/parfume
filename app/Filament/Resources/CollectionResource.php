@@ -26,7 +26,6 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class CollectionResource extends Resource
 {
@@ -47,7 +46,7 @@ class CollectionResource extends Resource
                         ->required(),
                     TextInput::make('slug')
                         ->readOnly()
-                        ->unique(Collection::class, 'slug->' . LaravelLocalization::getCurrentLocale(), ignoreRecord: true)
+                        ->unique(Collection::class, 'slug->' . session('locale'), ignoreRecord: true)
                         ->required(),
                     RichEditor::make('description')->required()->columnSpan('full'),
                 ])->columns(2)->columnSpan(2),

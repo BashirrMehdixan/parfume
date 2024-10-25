@@ -45,7 +45,7 @@ class BrandResource extends Resource
                         ->required(),
                     TextInput::make('slug')
                         ->readOnly()
-                        ->unique(Brand::class, 'slug->' . LaravelLocalization::getCurrentLocale(), ignoreRecord: true)
+                        ->unique(Brand::class, 'slug->' .session('locale'), ignoreRecord: true)
                         ->required(),
                     RichEditor::make('description')
                         ->columnSpan('full')

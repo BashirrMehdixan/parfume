@@ -5,7 +5,6 @@ namespace App\Http\Controllers\BrandsController;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Product;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Http\Request;
 
 class BrandsController extends Controller

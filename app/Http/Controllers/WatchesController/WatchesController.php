@@ -17,7 +17,7 @@ class WatchesController extends Controller
 
     public function show($slug)
     {
-        $watch = Product::where('slug->' . LaravelLocalization::getCurrentLocale(), $slug)->first();
+        $watch = Product::where('slug->' .session('locale'), $slug)->first();
         $products = Product::where('collection_id', 1)->get();
         return view('pages.watches.show', compact('watch', 'products'));
     }
