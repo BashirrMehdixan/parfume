@@ -404,7 +404,7 @@ img {
   position: absolute;
   font-size: 4rem;
   font-weight: 600;
-  color: rgba(var(--color_main), 1);
+  color: rgba(var(--color_white), 1);
   left: 50%;
   top: 50%;
   transition: all 0.3s ease;
@@ -720,9 +720,13 @@ footer .copyright {
   padding: 3rem 0;
 }
 
+.similar_products .best_selling {
+  padding-top: 0;
+}
+
 @media only screen and (max-width: 768px) {
   .banner_section .banner_block .flex_item {
-    height: auto;
+    height: 50rem;
   }
   .collection_row:first-child, .collection_row:nth-child(2), .collection_row:nth-child(3), .collection_row:nth-child(4), .collection_row:nth-child(5), .collection_row:nth-child(6), .collection_row:nth-child(7) {
     width: 100%;
@@ -794,6 +798,7 @@ footer .copyright {
   display: flex;
   align-items: center;
   gap: 1.6rem;
+  color: rgba(var(--color_main), 1);
 }
 .detail_content .product_price_wrap .price {
   font-size: 2.3rem;
@@ -802,9 +807,6 @@ footer .copyright {
 .detail_content .product_price_wrap .price.old_price {
   text-decoration: 0.18rem line-through solid gray;
   color: rgba(var(--color_dark_black), 0.6);
-}
-.detail_content .product_price_wrap .price.discount {
-  color: rgba(var(--color_main), 1);
 }
 
 .left_actions {

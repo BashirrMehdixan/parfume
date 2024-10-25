@@ -39,10 +39,8 @@ class SlideResource extends Resource
             ->schema([
                 Section::make()
                     ->schema([
-                        TextInput::make('title')
-                            ->required(),
-                        RichEditor::make('description')
-                            ->required(),
+                        TextInput::make('title'),
+                        RichEditor::make('description'),
                     ])->columnSpan('2'),
                 Section::make()->schema([
                     FileUpload::make('image')

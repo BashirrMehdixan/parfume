@@ -7,18 +7,16 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class ProductCard extends Component
+class ProductDetail extends Component
 {
-    public string $url;
     public Product $product;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($url, $product)
+    public function __construct($product)
     {
         $this->product = $product;
-        $this->url = $url;
     }
 
     /**
@@ -26,6 +24,6 @@ class ProductCard extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.product-card');
+        return view('components.product-detail');
     }
 }

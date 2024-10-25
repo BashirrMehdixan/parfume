@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController\BlogController;
 use App\Http\Controllers\BrandsController\BrandsController;
 use App\Http\Controllers\CategoriesController\CategoriesController;
+use App\Http\Controllers\ContactController\ContactController;
 use App\Http\Controllers\IndexController\IndexController;
 use App\Http\Controllers\ProductsController\ProductsController;
 use App\Http\Controllers\WatchesController\WatchesController;
@@ -12,8 +13,11 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localize']], function () {
     // Static
     Route::get(LaravelLocalization::transRoute('routes.index'), [IndexController::class, 'index'])->name('index');
+    // Contact
+    Route::get(LaravelLocalization::transRoute('routes.contact'), [ContactController::class, 'index'])->name('contact');
     // Products
     Route::get(LaravelLocalization::transRoute('routes.products'), [ProductsController::class, 'index'])->name('products.index');
+    Route::get(LaravelLocalization::transRoute('routes.products_filter'), [ProductsController::class, 'filter'])->name('products.filter');
     Route::get(LaravelLocalization::transRoute('routes.products_show'), [ProductsController::class, 'show'])->name('products.show');
     // Brands
     Route::get(LaravelLocalization::transRoute('routes.brands'), [BrandsController::class, 'index'])->name('brands.index');

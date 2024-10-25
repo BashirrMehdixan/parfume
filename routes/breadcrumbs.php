@@ -21,9 +21,9 @@ Breadcrumbs::for('brand', function (BreadcrumbTrail $trail, $brand) {
 
 });
 // Home > Perfumes
-Breadcrumbs::for('products', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('products', function (BreadcrumbTrail $trail, $category) {
     $trail->parent('index');
-    $trail->push(__('perfumes'), route('products.index'));
+    $trail->push($category->name, route('products.index', $category));
 });
 
 // Home > Perfumes > [Perfume]

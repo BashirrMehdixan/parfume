@@ -42,14 +42,16 @@
                             {{ __('brands') }}
                         </a>
                     </li>
+                    @foreach($collections as $collection)
+                        <li class="nav-item">
+                            <a href="{{ route('products.index', $collection->slug) }}" class="nav-link">
+                                {{ $collection->name }}
+                            </a>
+                        </li>
+                    @endforeach
                     <li class="nav-item">
-                        <a href="{{ route('products.index') }}" class="nav-link">
-                            {{ __('perfumes') }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('watches.index') }}" class="nav-link">
-                            {{ __('watches') }}
+                        <a href="{{ route('contact') }}" class="nav-link">
+                            {{ __('contact') }}
                         </a>
                     </li>
                 </ul>
@@ -221,11 +223,6 @@
                                     <li>
                                         <a href="{{ route('brands.index') }}">
                                             {{ __('brands') }}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('products.index') }}">
-                                            {{ __('perfumes') }}
                                         </a>
                                     </li>
                                     <li>

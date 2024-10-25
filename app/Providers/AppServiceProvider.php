@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\About;
 use App\Models\Brand;
+use App\Models\Collection;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,7 +24,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $about = About::first();
         $brands = Brand::where('status', 1)->get();
+        $collections = Collection::where('status', 1)->get();
         view()->share('about', $about);
         view()->share('brands', $brands);
+        view()->share('collections', $collections);
     }
 }

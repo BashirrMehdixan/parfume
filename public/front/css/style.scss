@@ -308,11 +308,17 @@ footer {
     padding: 3rem 0;
 }
 
+.similar_products {
+    .best_selling {
+        padding-top: 0;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .banner_section {
         .banner_block {
             .flex_item {
-                height: auto;
+                height: 50rem;
             }
         }
 
@@ -416,6 +422,7 @@ footer {
         display: flex;
         align-items: center;
         gap: 1.6rem;
+        color: rgba(var(--color_main), 1);
 
         .price {
             font-size: 2.3rem;
@@ -424,10 +431,6 @@ footer {
             &.old_price {
                 text-decoration: .18rem line-through solid gray;
                 color: rgba(var(--color_dark_black), .6);
-            }
-
-            &.discount {
-                color: rgba(var(--color_main), 1);
             }
         }
     }

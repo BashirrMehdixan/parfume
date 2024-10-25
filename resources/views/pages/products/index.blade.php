@@ -1,50 +1,42 @@
 @extends('layout.app')
 @section('content')
     <div class="container">
-        {{ Breadcrumbs::render('products') }}
+        {{ Breadcrumbs::render('products', $category) }}
     </div>
     <section class="products_section section_padding">
         <div class="container">
             <ul class="filter_box flex_item">
                 <li>
-                    <form action="">
+                    <form action="{{ route('products.filter', ['category'=>$category->slug]) }}" method="GET">
                         <ul class="filter_list">
                             <li>
                                 {{ __('filter_by') }}:
                             </li>
                             <li>
-                                <ul class="filter_item">
-                                    <span class="active_filter">{{ __('gender') }}</span>
-                                    <div class="filter_buttons">
-                                        <button class="btn btn_filter" data-gender="male">
-                                            {{ __('male') }}
-                                        </button>
-                                        <button class="btn btn_filter" data-gender="female">
-                                            {{ __('female') }}
-                                        </button>
-                                        <button class="btn btn_filter" data-gender="unisex">
-                                            {{ __('unisex') }}
-                                        </button>
-                                    </div>
-                                </ul>
+                                <select name="gender">
+                                    <option
+                                        value="all" {{ request('gender') == 'all' ? 'selected' : '' }}>{{ __('all') }}</option>
+                                    <option
+                                        value="male" {{ request('gender') == 'male' ? 'selected' : '' }}>{{ __('male') }}</option>
+                                    <option
+                                        value="female" {{ request('gender') == 'female' ? 'selected' : '' }}>{{ __('female') }}</option>
+                                    <option
+                                        value="unisex" {{ request('gender') == 'unisex' ? 'selected' : '' }}>{{ __('unisex') }}</option>
+                                </select>
                             </li>
                             <li>
-                                <ul class="filter_item">
-                                    <span class="active_filter">
-                                        {{ __('brands') }}
-                                    </span>
+                                <select name="brand">
+                                    <option
+                                        value="all" {{ request('brand') == 'all' ? 'selected' : '' }}>{{ __('all') }}</option>
                                     @foreach($brands as $brand)
-                                        <div class="filter_buttons">
-                                            <button class="btn btn_filter" data-brand="{{$brand->id}}">
-                                                {{ $brand->name }}
-                                            </button>
-                                        </div>
+                                        <option
+                                            value="{{ $brand->id }}" {{ request('brand') == $brand->id ? 'selected' : '' }}>
+                                            {{ $brand->name }}
+                                        </option>
                                     @endforeach
-                                </ul>
+                                </select>
                             </li>
-                            <button class="btn filter_submit">
-                                {{ __('submit') }}
-                            </button>
+                            <button type="submit" class="btn filter_submit">{{ __('submit') }}</button>
                         </ul>
                     </form>
                 </li>
@@ -71,7 +63,9 @@
                 @if($products->count())
                     @foreach($products as $product)
                         <div class="w_full w_lg_25">
-                            <x-product-card :url="route('products.show', $product->slug)" :product="$product"/>
+                            <x-product-card
+                                :url="route('products.show', ['slug'=>$product->slug, 'category'=>$product->collection->slug])"
+                                :product="$product"/>
                         </div>
                     @endforeach
 

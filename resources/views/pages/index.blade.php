@@ -19,9 +19,11 @@
                                                 <div class="inner_text">
                                                     {!! $slide->description !!}
                                                 </div>
-                                                <a href="{{route('index')}}" class="btn btn_main">
-                                                    Shop now
-                                                </a>
+                                                @if($slide->title && $slide->description)
+                                                    <a href="{{route('products.index')}}" class="btn btn_main">
+                                                        Shop now
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -111,7 +113,7 @@
                             @foreach($bestSell as $product)
                                 <li class="glide__slide">
                                     <x-product-card
-                                        :url="route('products.show',$product->slug)"
+                                        :url=" route('products.show',['slug'=>$product->slug, 'category'=>$product->collection->slug]) "
                                         :product="$product"/>
                                 </li>
                             @endforeach
@@ -159,9 +161,9 @@
                         Perfume
                         Sale!
                     </p>
-                    <a href="{{ route('products.index') }}" class="btn btn_main">
-                        Know more
-                    </a>
+{{--                    <a href="{{ route('products.index') }}" class="btn btn_main">--}}
+{{--                        Know more--}}
+{{--                    </a>--}}
                 </div>
             </div>
         </div>

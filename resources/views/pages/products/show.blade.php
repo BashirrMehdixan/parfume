@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('content')
     <div class="container">
-        {{ Breadcrumbs::render('product', $product) }}
+        {{--        {{ Breadcrumbs::render('product', $product) }}--}}
     </div>
     <section class="section_padding">
         <div class="container">
@@ -35,7 +35,7 @@
                             {!! $product->description !!}
                         </div>
                         <div class="product_price_wrap">
-                            <div class="price old_price">
+                            <div @class(["price", "old_price"=>$product->discount])>
                                 $ <span>{{ $product->price }}</span>
                             </div>
                             @if($product->discount)
@@ -44,46 +44,44 @@
                                 </div>
                             @endif
                         </div>
-                        <form action="">
-                            <div class="flex items_center actions">
-                                <div class="flex items_center left_actions">
-                                    <button class="btn btn_actions btn_decrement">
-                                        <i data-lucide="minus"></i>
-                                    </button>
-                                    <input type="number" value="1" class="form_control count_control" minlength="1"
-                                           name="product_count">
-                                    <button class="btn btn_actions btn_increment">
-                                        <i data-lucide="plus"></i>
-                                    </button>
-                                </div>
-                                <div class="right_actions">
-                                    <button class="btn btn_heart">
-                                        <i data-lucide="heart"></i>
-                                    </button>
-                                </div>
+                        <div class="flex items_center actions">
+                            <div class="flex items_center left_actions">
+                                <button class="btn btn_actions btn_decrement">
+                                    <i data-lucide="minus"></i>
+                                </button>
+                                <input type="number" value="1" min="1" class="form_control count_control"
+                                       name="product_count">
+                                <button class="btn btn_actions btn_increment">
+                                    <i data-lucide="plus"></i>
+                                </button>
                             </div>
-                            <button class="btn btn_main btn_add_cart">
-                                Add to cart
-                            </button>
-                        </form>
+                            <div class="right_actions">
+                                <button class="btn btn_heart">
+                                    <i data-lucide="heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button class="btn btn_main btn_add_cart">
+                            Add to cart
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="section_padding">
+    <section class="similar_products section_padding">
         <div class="container">
             <h4 class="section_title">
                 Similar perfumes
             </h4>
-            <div class="best_selling glide">
+            <div class="best_selling glide pt_0">
                 <div class="glide__track" data-glide-el="track">
                     <ul class="glide__slides">
                         @if($products->count() > 0)
                             @foreach($products as $product)
                                 <li class="glide__slide">
                                     <x-product-card
-                                        :url="route('products.show',$product->slug)"
+                                        :url="route('products.show', ['slug'=>$product->slug, 'category'=>$product->collection->slug])"
                                         :product="$product"/>
                                 </li>
                             @endforeach
