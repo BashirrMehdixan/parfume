@@ -49,7 +49,7 @@ class ProductsResource extends Resource
                         ->required(),
                     TextInput::make('slug')
                         ->readOnly()
-                        ->unique(Product::class, 'slug->'.LaravelLocalization::getCurrentLocale(), ignoreRecord: true)
+                        ->unique(Product::class, 'slug->'.session('locale'), ignoreRecord: true)
                         ->readOnly()
                         ->required(),
                     Select::make('brand_id')

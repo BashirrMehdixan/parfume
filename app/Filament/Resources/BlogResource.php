@@ -52,7 +52,7 @@ class BlogResource extends Resource
                     TextInput::make('slug')
                         ->readOnly()
                         ->required()
-                        ->unique(Blog::class, 'slug->'.LaravelLocalization::getCurrentLocale(), fn($record) => $record),
+                        ->unique(Blog::class, 'slug->'.session('locale'), fn($record) => $record),
                     Select::make('category_id')
                         ->relationship('category', 'title')
                         ->columnSpan('full')

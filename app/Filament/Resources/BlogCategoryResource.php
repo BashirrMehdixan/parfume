@@ -50,7 +50,7 @@ class BlogCategoryResource extends Resource
                     TextInput::make('slug')
                         ->readOnly()
                         ->required()
-                        ->unique(BlogCategory::class, 'slug->'.LaravelLocalization::getCurrentLocale(), fn($record) => $record),
+                        ->unique(BlogCategory::class, 'slug->'.session('locale'), fn($record) => $record),
                     RichEditor::make('description')->columnSpan('full'),
                 ])->columns(2)->columnSpan(2),
 
