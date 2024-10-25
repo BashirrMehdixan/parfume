@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ LaravelLocalization::getCurrentLocale() }}">
+<html lang="{{ session('locale') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,19 +38,20 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('brands.index') }}" class="nav-link">
+                        <a href="{{ route('brands_'.session('locale')) }}" class="nav-link">
                             {{ __('brands') }}
                         </a>
                     </li>
                     @foreach($collections as $collection)
                         <li class="nav-item">
-                            <a href="{{ route('products.index', $collection->slug) }}" class="nav-link">
+                            <a href="{{ route('products_category_'.session('locale'), $collection->slug) }}"
+                               class="nav-link">
                                 {{ $collection->name }}
                             </a>
                         </li>
                     @endforeach
                     <li class="nav-item">
-                        <a href="{{ route('contact') }}" class="nav-link">
+                        <a href="{{ route('contact_'.session('locale')) }}" class="nav-link">
                             {{ __('contact') }}
                         </a>
                     </li>
@@ -60,14 +61,14 @@
                 <div class="lang_box">
                     <button class="btn active_lang">
                         <i data-lucide="languages"></i>
-                        {{ LaravelLocalization::getCurrentLocale() }}
+                        {{ session('locale') }}
                     </button>
                     <ul class="lang_items">
-                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        @foreach($langs as $lang)
                             <li class="lang_item">
-                                <a rel="alternate" hreflang="{{ $localeCode }}"
-                                   href="{{ LaravelLocalization::getLocalizedURL($localeCode) }}">
-                                    {{ $properties['native'] }}
+                                <a rel="alternate" hreflang="{{ $lang['url'] }}"
+                                   href="{{ $lang['url'] }}">
+                                    {{ $lang['code'] }}
                                 </a>
                             </li>
                         @endforeach
@@ -143,7 +144,7 @@
                                 <ul class="footer_list">
                                     @foreach($brands as $brand)
                                         <li>
-                                            <a href="{{ route('brands.show', $brand->slug) }}">
+                                            <a href="{{ route('brands_show_'.session('locale'), $brand->slug) }}">
                                                 {{ $brand->name }}
                                             </a>
                                         </li>
@@ -221,12 +222,12 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('brands.index') }}">
+                                        <a href="{{ route('brands_'.session('locale')) }}">
                                             {{ __('brands') }}
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('index') }}">
+                                        <a href="{{ route('contact_'.session('locale')) }}">
                                             {{ __('contact') }}
                                         </a>
                                     </li>

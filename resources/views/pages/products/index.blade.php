@@ -7,7 +7,8 @@
         <div class="container">
             <ul class="filter_box flex_item">
                 <li>
-                    <form action="{{ route('products.filter', ['category'=>$category->slug]) }}" method="GET">
+                    <form action="{{ route('products_filter_'.session('locale'), ['category'=>$category->slug]) }}"
+                          method="GET">
                         <ul class="filter_list">
                             <li>
                                 {{ __('filter_by') }}:
@@ -64,7 +65,7 @@
                     @foreach($products as $product)
                         <div class="w_full w_lg_25">
                             <x-product-card
-                                :url="route('products.show', ['slug'=>$product->slug, 'category'=>$product->collection->slug])"
+                                :url="route('products_show_'.session('locale'), ['slug'=>$product->slug, 'category'=>$product->collection->slug])"
                                 :product="$product"/>
                         </div>
                     @endforeach

@@ -13,12 +13,17 @@ class IndexController extends Controller
 {
     public function index()
     {
+        $langs = [
+            ['code' => 'az', 'url' => '/'],
+            ['code' => 'en', 'url' => '/en'],
+            ['code' => 'ru', 'url' => '/ru'],
+        ];
         $slides = Slide::orderBy('order')->where('status', 1)->get();
         $products = Product::inRandomOrder()->where('status', 1)->get();
         $bestSell = Product::where('best_selling', 1)->get();
         $brands = Brand::where('status', 1)->get();
         $blogs = Blog::where('status', 1)->take(3)->get();
-        return view('pages.index', compact('slides', 'products', 'bestSell', 'brands', 'blogs'));
+        return view('pages.index', compact('langs', 'slides', 'products', 'bestSell', 'brands', 'blogs'));
 
 
     }

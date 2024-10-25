@@ -81,7 +81,7 @@
                             @foreach($products as $product)
                                 <li class="glide__slide">
                                     <x-product-card
-                                        :url="route('products.show',$product->slug)"
+                                        :url="route('products_show_'.session('locale'),$product->slug)"
                                         :product="$product"/>
                                 </li>
                             @endforeach

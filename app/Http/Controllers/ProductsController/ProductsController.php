@@ -13,22 +13,38 @@ class ProductsController extends Controller
 {
     public function index($category)
     {
-        $category = Collection::where('slug->' . LaravelLocalization::getCurrentLocale(), $category)->first();
+        $langs = [
+            ['code' => 'az', 'url' => '/mehsullar/' . $category],
+            ['code' => 'en', 'url' => '/en/products/' . $category],
+            ['code' => 'ru', 'url' => '/ru/produkty/' . $category],
+        ];
+        $category = Collection::where('slug->' . session('locale'), $category)->first();
         $products = $category->products()->orderBy('created_at', 'desc')->where('status', 1)->paginate(12);
         $brands = Brand::where('status', 1)->get();
-        return view('pages.products.index', compact('products', 'brands', 'category'));
+        return view('pages.products.index', compact('langs', 'products', 'brands', 'category'));
     }
 
     public function show($category, $slug)
     {
+        $langs = [
+            ['code' => 'az', 'url' => '/mehsullar/' . $category . '/' . $slug],
+            ['code' => 'en', 'url' => '/en/products/' . $category . '/' . $slug],
+            ['code' => 'ru', 'url' => '/ru/produkty/' . $category . '/' . $slug],
+        ];
+        $category = Collection::where('slug->' . session('locale'), $category)->first();
         $products = Product::where('status', 1)->get();
-        $product = Product::where('slug->' . LaravelLocalization::getCurrentLocale(), $slug)->first();
-        return view('pages.products.show', compact('product', 'products'));
+        $product = Product::where('slug->' . session('locale'), $slug)->first();
+        return view('pages.products.show', compact('langs', 'product', 'products', 'category'));
     }
 
     public function filter(Request $request, $category)
     {
-        $category = Collection::where('slug->' . LaravelLocalization::getCurrentLocale(), $category)->first();
+        $langs = [
+            ['code' => 'az', 'url' => '/mehsullar/' . $category . '/filter'],
+            ['code' => 'en', 'url' => '/en/products/' . $category . '/filter'],
+            ['code' => 'ru', 'url' => '/ru/produkty/' . $category . '/filter'],
+        ];
+        $category = Collection::where('slug->' . session('locale'), $category)->first();
         $query = Product::query()->where('status', 1)->where('collection_id', $category->id);
         if ($request->gender && $request->gender !== 'all') {
             $query->where('gender', $request->gender);
@@ -40,6 +56,6 @@ class ProductsController extends Controller
 
         $products = $query->paginate(12);
 
-        return view('pages.products.index', compact('products', 'category'));
+        return view('pages.products.index', compact('langs', 'products', 'category'));
     }
 }

@@ -11,36 +11,36 @@ Breadcrumbs::for('index', function (BreadcrumbTrail $trail) {
 // Home > Brands
 Breadcrumbs::for('brands', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(__('brands'), route('brands.index'));
+    $trail->push(__('brands'), route('brands_' . session('locale')));
 
 });
 // Home > Brands > [Brand]
 Breadcrumbs::for('brand', function (BreadcrumbTrail $trail, $brand) {
     $trail->parent('brands');
-    $trail->push($brand->name, route('brands.show', $brand));
+    $trail->push($brand->name, route('brands_show_' . session('locale'), $brand));
 
 });
 // Home > Perfumes
 Breadcrumbs::for('products', function (BreadcrumbTrail $trail, $category) {
     $trail->parent('index');
-    $trail->push($category->name, route('products.index', $category));
+    $trail->push($category->name, route('products_category_' . session('locale'), $category));
 });
 
 // Home > Perfumes > [Perfume]
-Breadcrumbs::for('product', function (BreadcrumbTrail $trail, $product) {
+Breadcrumbs::for('product', function (BreadcrumbTrail $trail, $product, $category) {
     $trail->parent('products');
-    $trail->push($product->name, route('products.show', $product));
+    $trail->push($product->name, route('products_show'.session('locale'), $product, $category));
 });
 
-// Home > Watches
-Breadcrumbs::for('watches', function (BreadcrumbTrail $trail) {
-    $trail->parent('index');
-    $trail->push(__('watches'), route('products.index'));
-});
-
-// Home > Watches > [Watch]
-Breadcrumbs::for('watch', function (BreadcrumbTrail $trail, $watch) {
-    $trail->parent('watches');
-    $trail->push($watch->name, route('watches.show', $watch));
-});
+//// Home > Watches
+//Breadcrumbs::for('watches', function (BreadcrumbTrail $trail) {
+//    $trail->parent('index');
+//    $trail->push(__('watches'), route('products.index'));
+//});
+//
+//// Home > Watches > [Watch]
+//Breadcrumbs::for('watch', function (BreadcrumbTrail $trail, $watch) {
+//    $trail->parent('watches');
+//    $trail->push($watch->name, route('watches.show', $watch));
+//});
 

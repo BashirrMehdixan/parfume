@@ -9,6 +9,11 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('pages.contact.index');
+        $langs = [
+            ['code' => 'az', 'url' => '/elaqe'],
+            ['code' => 'en', 'url' => '/en/contact'],
+            ['code' => 'ru', 'url' => '/ru/contact'],
+        ];
+        return view('pages.contact.index', compact('langs'));
     }
 }

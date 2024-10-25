@@ -20,7 +20,8 @@
                                                     {!! $slide->description !!}
                                                 </div>
                                                 @if($slide->title && $slide->description)
-                                                    <a href="{{route('products.index')}}" class="btn btn_main">
+                                                    <a href="{{route('products_category'.session('locale'))}}"
+                                                       class="btn btn_main">
                                                         Shop now
                                                     </a>
                                                 @endif
@@ -113,7 +114,7 @@
                             @foreach($bestSell as $product)
                                 <li class="glide__slide">
                                     <x-product-card
-                                        :url=" route('products.show',['slug'=>$product->slug, 'category'=>$product->collection->slug]) "
+                                        :url=" route('products_category_'.session('locale'),['slug'=>$product->slug, 'category'=>$product->collection->slug]) "
                                         :product="$product"/>
                                 </li>
                             @endforeach
@@ -161,9 +162,9 @@
                         Perfume
                         Sale!
                     </p>
-{{--                    <a href="{{ route('products.index') }}" class="btn btn_main">--}}
-{{--                        Know more--}}
-{{--                    </a>--}}
+                    {{--                    <a href="{{ route('products.index') }}" class="btn btn_main">--}}
+                    {{--                        Know more--}}
+                    {{--                    </a>--}}
                 </div>
             </div>
         </div>

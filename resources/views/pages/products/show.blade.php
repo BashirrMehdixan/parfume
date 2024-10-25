@@ -1,7 +1,7 @@
 @extends('layout.app')
 @section('content')
     <div class="container">
-        {{--        {{ Breadcrumbs::render('product', $product) }}--}}
+        {{--                {{ Breadcrumbs::render('product', $product, $category) }}--}}
     </div>
     <section class="section_padding">
         <div class="container">
@@ -72,7 +72,7 @@
     <section class="similar_products section_padding">
         <div class="container">
             <h4 class="section_title">
-                Similar perfumes
+                Similar {{ $product->collection->name }}
             </h4>
             <div class="best_selling glide pt_0">
                 <div class="glide__track" data-glide-el="track">
@@ -81,7 +81,7 @@
                             @foreach($products as $product)
                                 <li class="glide__slide">
                                     <x-product-card
-                                        :url="route('products.show', ['slug'=>$product->slug, 'category'=>$product->collection->slug])"
+                                        :url="route('products_show_'.session('locale'), ['slug'=>$product->slug, 'category'=>$product->collection->slug])"
                                         :product="$product"/>
                                 </li>
                             @endforeach
