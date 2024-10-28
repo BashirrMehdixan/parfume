@@ -1,7 +1,24 @@
 @extends('layout.app')
 @section('content')
     <div class="container">
-        {{--                {{ Breadcrumbs::render('product', $product, $category) }}--}}
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{{ route('index') }}">
+                        {{ __('home') }}
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{{ route('products_category_'.session('locale'), $product->collection->slug) }}">
+                        {{ $product->collection->name }}
+                    </a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ $product->name }}
+                </li>
+
+            </ol>
+        </nav>
     </div>
     <section class="section_padding">
         <div class="container">
@@ -47,17 +64,17 @@
                         <div class="flex items_center actions">
                             <div class="flex items_center left_actions">
                                 <button class="btn btn_actions btn_decrement">
-                                    <i data-lucide="minus"></i>
+                                    <span class="mdi mdi-minus"></span>
                                 </button>
                                 <input type="number" value="1" min="1" class="form_control count_control"
                                        name="product_count">
                                 <button class="btn btn_actions btn_increment">
-                                    <i data-lucide="plus"></i>
+                                    <span class="mdi mdi-plus"></span>
                                 </button>
                             </div>
                             <div class="right_actions">
                                 <button class="btn btn_actions btn_heart">
-                                    <i data-lucide="heart"></i>
+                                    <span class="mdi mdi-heart-outline"></span>
                                 </button>
                             </div>
                         </div>
@@ -90,10 +107,10 @@
                 </div>
                 <div class="glide__arrows" data-glide-el="controls">
                     <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                        <i data-lucide="chevron-left" color="rgba(var(--color_main), 1)"></i>
+                        <span class="mdi mdi-chevron-left"></span>
                     </button>
                     <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                        <i data-lucide="chevron-right" color="rgba(var(--color_main), 1)"></i>
+                        <span class="mdi mdi-chevron-right"></span>
                     </button>
                 </div>
             </div>

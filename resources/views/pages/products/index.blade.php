@@ -37,7 +37,7 @@
                                     @endforeach
                                 </select>
                             </li>
-                            <button type="submit" class="btn filter_submit">{{ __('submit') }}</button>
+                            <button type="submit" class="btn btn_main filter_submit">{{ __('submit') }}</button>
                         </ul>
                     </form>
                 </li>

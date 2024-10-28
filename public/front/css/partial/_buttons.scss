@@ -13,10 +13,9 @@
     &:focus {
         outline: none;
     }
+
     &.btn_mobile {
-        svg {
-            stroke: rgba(var(--color_black), 1);
-        }
+        font-size: 2.8rem
     }
 
     &.btn_main {
@@ -34,14 +33,14 @@
     }
 
     &.btn_actions {
-        font-size: 1.6rem;
+        font-size: 2.3rem;
         display: flex;
         align-items: center;
         justify-content: center;
 
-        svg {
-            stroke: rgba(var(--color_main), 1);
-            pointer-events: none;
+        &.btn_heart {
+            font-size: 3rem;
+            color: rgba(var(--color_main), 1);
         }
     }
 

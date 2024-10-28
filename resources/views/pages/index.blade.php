@@ -123,10 +123,10 @@
                 </div>
                 <div class="glide__arrows" data-glide-el="controls">
                     <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                        <i data-lucide="chevron-left" color="rgba(var(--color_main), 1)"></i>
+                        <span class="mdi mdi-chevron-left"></span>
                     </button>
                     <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                        <i data-lucide="chevron-right" color="rgba(var(--color_main), 1)"></i>
+                        <span class="mdi mdi-chevron-right"></span>
                     </button>
                 </div>
             </div>

@@ -27,9 +27,9 @@ Breadcrumbs::for('products', function (BreadcrumbTrail $trail, $category) {
 });
 
 // Home > Perfumes > [Perfume]
-Breadcrumbs::for('product', function (BreadcrumbTrail $trail, $product, $category) {
-    $trail->parent('products');
-    $trail->push($product->name, route('products_show'.session('locale'), $product, $category));
+Breadcrumbs::for('product', function (BreadcrumbTrail $trail, $product) {
+    $trail->parent('index');
+    $trail->push($product->name, route('products_show_' . session('locale'), $product));
 });
 
 //// Home > Watches

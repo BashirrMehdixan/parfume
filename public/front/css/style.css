@@ -99,6 +99,7 @@ img {
 
 .select_control {
   border: none;
+  cursor: pointer;
   padding: 1rem 3.5rem 0.8rem 1.5rem;
 }
 
@@ -458,8 +459,8 @@ img {
 .btn:focus {
   outline: none;
 }
-.btn.btn_mobile svg {
-  stroke: rgba(var(--color_black), 1);
+.btn.btn_mobile {
+  font-size: 2.8rem;
 }
 .btn.btn_main {
   color: rgba(var(--color_white), 1);
@@ -473,14 +474,14 @@ img {
   border: 1px solid rgba(var(--color_main), 1);
 }
 .btn.btn_actions {
-  font-size: 1.6rem;
+  font-size: 2.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.btn.btn_actions svg {
-  stroke: rgba(var(--color_main), 1);
-  pointer-events: none;
+.btn.btn_actions.btn_heart {
+  font-size: 3rem;
+  color: rgba(var(--color_main), 1);
 }
 .btn.btn_add_cart {
   width: 30rem;
@@ -554,16 +555,17 @@ header .navbar .right-nav .lang_box .active_lang > svg {
 }
 header .navbar .right-nav .lang_box .lang_items {
   position: absolute;
+  width: 100%;
   background-color: rgba(var(--color_white), 1);
   border-radius: 0.5rem;
   z-index: 1;
   box-shadow: rgba(var(--color_dark_black), 0.5) 0 0.8rem 2.4rem;
   transform-origin: top;
   transition: all 0.3s ease-in-out;
-  transform: scaleY(0);
+  transform: translate(10%, 0) scaleY(0);
 }
 header .navbar .right-nav .lang_box .lang_items.active {
-  transform: scaleY(1);
+  transform: translate(10%, 0) scaleY(1);
 }
 header .navbar .right-nav .lang_box .lang_items .lang_item a {
   display: block;
@@ -612,10 +614,11 @@ header .navbar .right-nav .lang_box .lang_items .lang_item a:hover {
   padding: 5rem 0;
 }
 .best_selling .glide__arrow {
+  color: rgba(var(--color_main), 1);
   background: rgba(var(--color_white), 1);
 }
-.best_selling .glide__arrow svg {
-  stroke: rgba(var(--color_main), 1);
+.best_selling .glide__arrow .mdi {
+  font-size: 3rem;
 }
 
 .filter_box.flex_item {

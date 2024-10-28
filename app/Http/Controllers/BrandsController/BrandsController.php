@@ -23,7 +23,8 @@ class BrandsController extends Controller
     public function show($slug)
     {
         $brand = Brand::where('slug->' . session('locale'), $slug)->first();
-        $products = Product::where('brand_id', $brand->id)->get();
+//        dd($brand);
+        $products = $brand->products()->where('status', 1)->get();
         $langs = [
             ['code' => 'az', 'url' => '/markalar/' . $brand->getTranslation('slug', 'az')],
             ['code' => 'en', 'url' => '/en/brands/' . $brand->getTranslation('slug', 'en')],

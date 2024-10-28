@@ -38,7 +38,7 @@ Route::group(['prefix' => $locale, function ($locale = null) {
         Route::get('produkty/{category}/{slug}', [ProductsController::class, 'show'])->name('ru');
     });
     Route::name('products_filter_')->group(function () {
-        Route::get('mehsuallar/{category}/filter', [ProductsController::class, 'filter'])->name('az');
+        Route::get('mehsullar/{category}/filter', [ProductsController::class, 'filter'])->name('az');
         Route::get('products/{category}/filter', [ProductsController::class, 'filter'])->name('en');
         Route::get('produkty/{category}/filter', [ProductsController::class, 'filter'])->name('ru');
     });

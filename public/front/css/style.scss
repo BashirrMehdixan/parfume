@@ -80,16 +80,17 @@ header {
 
                 .lang_items {
                     position: absolute;
+                    width: 100%;
                     background-color: rgba(var(--color_white), 1);
                     border-radius: .5rem;
                     z-index: 1;
                     box-shadow: rgba(var(--color_dark_black), .5) 0 .8rem 2.4rem;
                     transform-origin: top;
                     transition: all .3s ease-in-out;
-                    transform: scaleY(0);
+                    transform: translate(10%, 0) scaleY(0);
 
                     &.active {
-                        transform: scaleY(1);
+                        transform: translate(10%, 0) scaleY(1);
                     }
 
                     .lang_item {
@@ -161,9 +162,11 @@ header {
     padding: 5rem 0;
 
     .glide__arrow {
+        color: rgba(var(--color_main), 1);
         background: rgba(var(--color_white), 1);
-        svg {
-            stroke: rgba(var(--color_main), 1);
+
+        .mdi {
+            font-size: 3rem;
         }
     }
 }
