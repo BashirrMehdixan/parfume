@@ -21,10 +21,37 @@ class ProductsController extends Controller
 
     }
 
-    public function index($slug)
+    protected function applySorting($query, $sortBy)
+    {
+        switch ($sortBy) {
+            case 'old':
+                $query->orderBy('created_at', 'asc');
+                break;
+            case 'alph_asc':
+                $query->orderBy('name', 'asc');
+                break;
+            case 'alph_desc':
+                $query->orderBy('name', 'desc');
+                break;
+            case 'low_order':
+                $query->orderBy('price', 'asc');
+                break;
+            case 'high_order':
+                $query->orderBy('price', 'desc');
+                break;
+            default:
+                $query->orderBy('created_at', 'desc');
+                break;
+        }
+        return $query;
+    }
+
+    public function index(Request $request, $slug)
     {
         $category = Collection::where('slug->' . session('locale'), $slug)->first();
-        $products = $category->products()->orderBy('created_at', 'desc')->where('status', 1)->paginate(12);
+        $query = $category->products()->where('status', 1);
+        $this->applySorting($query, $request->input('sortBy'));
+        $products = $query->paginate(12);
         $brands = Brand::where('status', 1)->get();
         return view('pages.products.index', compact('products', 'brands', 'category'), [
             'langs' => $this->getCategory($category),

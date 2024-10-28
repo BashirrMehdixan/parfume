@@ -42,35 +42,45 @@
                     </form>
                 </li>
                 <li class="filter_list">
-                    <form action="">
+                    <form action="{{ route('products_category_'.session('locale'), $category->slug) }}" method="GET">
                         <ul class="filter_item">
                             <span class="active_filter">{{ __('sort_by') }}</span>
-                            <div class="filter_buttons">
-                                <button class="btn btn_filter" data-gender="male">
-                                    {{ __('male') }}
-                                </button>
-                                <button class="btn btn_filter" data-gender="female">
-                                    {{ __('female') }}
-                                </button>
-                                <button class="btn btn_filter" data-gender="unisex">
-                                    {{ __('unisex') }}
-                                </button>
-                            </div>
+                            <select name="sortBy" class="form_control select_control" onchange="this.form.submit()">
+                                <option value="new" {{ request('sortBy') == 'new' ? 'selected' : '' }}>
+                                    {{ __('new') }}
+                                </option>
+                                <option value="old" {{ request('sortBy') == 'old' ? 'selected' : '' }}>
+                                    {{ __('old') }}
+                                </option>
+                                <option value="alph_asc" {{ request('sortBy') == 'alph_asc' ? 'selected' : '' }}>
+                                    {{ __('alphabet') }} Z-A
+                                </option>
+                                <option value="alph_desc" {{ request('sortBy') == 'alph_desc' ? 'selected' : '' }}>
+                                    {{ __('alphabet') }} A-Z
+                                </option>
+                                <option value="low_order" {{ request('sortBy') == 'low_order' ? 'selected' : '' }}>
+                                    {{ __('cheapest') }}
+                                </option>
+                                <option value="high_order" {{ request('sortBy') == 'high_order' ? 'selected' : '' }}>
+                                    {{ __('expensive') }}
+                                </option>
+                            </select>
                         </ul>
                     </form>
                 </li>
             </ul>
             <div class="flex_item gap_30">
-                @if($products->count())
-                    @foreach($products as $product)
-                        <div class="w_full w_lg_25">
-                            <x-product-card
-                                :url="route('products_show_'.session('locale'), ['slug'=>$product->slug, 'category'=>$product->collection->slug])"
-                                :product="$product"/>
-                        </div>
-                    @endforeach
-
-                @endif
+                @isset($products)
+                    @if($products->count())
+                        @foreach($products as $product)
+                            <div class="w_full w_lg_25">
+                                <x-product-card
+                                    :url="route('products_show_'.session('locale'), ['slug'=>$product->slug, 'category'=>$product->collection->slug])"
+                                    :product="$product"/>
+                            </div>
+                        @endforeach
+                    @endif
+                @endisset
             </div>
         </div>
     </section>

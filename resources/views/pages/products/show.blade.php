@@ -1,25 +1,5 @@
 @extends('layout.app')
 @section('content')
-    <div class="container">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a href="{{ route('index') }}">
-                        {{ __('home') }}
-                    </a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="{{ route('products_category_'.session('locale'), $product->collection->slug) }}">
-                        {{ $product->collection->name }}
-                    </a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                    {{ $product->name }}
-                </li>
-
-            </ol>
-        </nav>
-    </div>
     <section class="section_padding">
         <div class="container">
             <div class="flex_item items_center">

@@ -461,6 +461,7 @@ img {
 }
 .btn.btn_mobile {
   font-size: 2.8rem;
+  color: rgba(var(--color_black), 1);
 }
 .btn.btn_main {
   color: rgba(var(--color_white), 1);

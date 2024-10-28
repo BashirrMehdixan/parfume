@@ -6,8 +6,6 @@ use App\Http\Controllers\BrandsController\BrandsController;
 use App\Http\Controllers\ContactController\ContactController;
 use App\Http\Controllers\IndexController\IndexController;
 use App\Http\Controllers\ProductsController\ProductsController;
-use App\Http\Controllers\BlogController\BlogController;
-use App\Http\Controllers\CategoriesController\CategoriesController;
 
 $locale = Request::segment(1);
 if (in_array($locale, ['en', 'ru'])) {
@@ -32,15 +30,15 @@ Route::group(['prefix' => $locale, function ($locale = null) {
         Route::get('products/{slug}', [ProductsController::class, 'index'])->name('en');
         Route::get('produkty/{slug}', [ProductsController::class, 'index'])->name('ru');
     });
-    Route::name('products_show_')->group(function () {
-        Route::get('mehsullar/{category}/{slug}', [ProductsController::class, 'show'])->name('az');
-        Route::get('products/{category}/{slug}', [ProductsController::class, 'show'])->name('en');
-        Route::get('produkty/{category}/{slug}', [ProductsController::class, 'show'])->name('ru');
-    });
     Route::name('products_filter_')->group(function () {
         Route::get('mehsullar/{category}/filter', [ProductsController::class, 'filter'])->name('az');
         Route::get('products/{category}/filter', [ProductsController::class, 'filter'])->name('en');
         Route::get('produkty/{category}/filter', [ProductsController::class, 'filter'])->name('ru');
+    });
+    Route::name('products_show_')->group(function () {
+        Route::get('mehsullar/{category}/{slug}', [ProductsController::class, 'show'])->name('az');
+        Route::get('products/{category}/{slug}', [ProductsController::class, 'show'])->name('en');
+        Route::get('produkty/{category}/{slug}', [ProductsController::class, 'show'])->name('ru');
     });
     // Brands
     Route::name('brands_')->group(function () {
