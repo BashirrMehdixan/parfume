@@ -36,7 +36,7 @@ class ProductsResource extends Resource
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationParentItem = "Collection";
+    protected static ?string $navigationLabel = 'Products';
 
     public static function form(Form $form): Form
     {
@@ -49,7 +49,7 @@ class ProductsResource extends Resource
                         ->required(),
                     TextInput::make('slug')
                         ->readOnly()
-                        ->unique(Product::class, 'slug->'.session('locale'), ignoreRecord: true)
+                        ->unique(Product::class, 'slug->' . session('locale'), ignoreRecord: true)
                         ->readOnly()
                         ->required(),
                     Select::make('brand_id')

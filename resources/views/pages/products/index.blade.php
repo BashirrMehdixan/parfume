@@ -14,7 +14,7 @@
                                 {{ __('filter_by') }}:
                             </li>
                             <li>
-                                <select name="gender">
+                                <select name="gender" class="form_control select_control">
                                     <option
                                         value="all" {{ request('gender') == 'all' ? 'selected' : '' }}>{{ __('all') }}</option>
                                     <option
@@ -26,7 +26,7 @@
                                 </select>
                             </li>
                             <li>
-                                <select name="brand">
+                                <select name="brand" class="form_control select_control">
                                     <option
                                         value="all" {{ request('brand') == 'all' ? 'selected' : '' }}>{{ __('all') }}</option>
                                     @foreach($brands as $brand)

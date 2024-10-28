@@ -97,6 +97,11 @@ img {
   -webkit-appearance: none;
 }
 
+.select_control {
+  border: none;
+  padding: 1rem 3.5rem 0.8rem 1.5rem;
+}
+
 .section_img {
   height: 57rem;
 }
@@ -453,6 +458,9 @@ img {
 .btn:focus {
   outline: none;
 }
+.btn.btn_mobile svg {
+  stroke: rgba(var(--color_black), 1);
+}
 .btn.btn_main {
   color: rgba(var(--color_white), 1);
   background-color: rgba(var(--color_main), 1);
@@ -471,6 +479,7 @@ img {
   justify-content: center;
 }
 .btn.btn_actions svg {
+  stroke: rgba(var(--color_main), 1);
   pointer-events: none;
 }
 .btn.btn_add_cart {
@@ -534,10 +543,14 @@ header .navbar .right-nav .lang_box {
 }
 header .navbar .right-nav .lang_box .active_lang {
   display: flex;
+  color: rgba(var(--color_black), 1);
   align-items: center;
   font-size: 1.8rem;
   gap: 1rem;
   font-weight: 500;
+}
+header .navbar .right-nav .lang_box .active_lang > svg {
+  stroke: rgba(var(--color_black), 1);
 }
 header .navbar .right-nav .lang_box .lang_items {
   position: absolute;
@@ -597,6 +610,12 @@ header .navbar .right-nav .lang_box .lang_items .lang_item a:hover {
 
 .best_selling {
   padding: 5rem 0;
+}
+.best_selling .glide__arrow {
+  background: rgba(var(--color_white), 1);
+}
+.best_selling .glide__arrow svg {
+  stroke: rgba(var(--color_main), 1);
 }
 
 .filter_box.flex_item {

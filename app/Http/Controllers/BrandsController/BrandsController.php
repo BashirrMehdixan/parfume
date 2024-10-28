@@ -22,13 +22,13 @@ class BrandsController extends Controller
 
     public function show($slug)
     {
-        $langs = [
-            ['code' => 'az', 'url' => 'brendler/' . $slug],
-            ['code' => 'en', 'url' => '/en/brands/' . $slug],
-            ['code' => 'ru', 'url' => '/ru/brendy/' . $slug],
-        ];
         $brand = Brand::where('slug->' . session('locale'), $slug)->first();
-        $brandedP = Product::where('brand_id', $brand->id)->get();
-        return view('pages.brands.show', compact('brand', 'brandedP', 'langs'));
+        $products = Product::where('brand_id', $brand->id)->get();
+        $langs = [
+            ['code' => 'az', 'url' => '/markalar/' . $brand->getTranslation('slug', 'az')],
+            ['code' => 'en', 'url' => '/en/brands/' . $brand->getTranslation('slug', 'en')],
+            ['code' => 'ru', 'url' => '/ru/brendy/' . $brand->getTranslation('slug', 'ru')],
+        ];
+        return view('pages.brands.show', compact('brand', 'products', 'langs'));
     }
 }

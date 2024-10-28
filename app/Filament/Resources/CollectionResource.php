@@ -32,6 +32,7 @@ class CollectionResource extends Resource
     use Translatable;
 
     protected static ?string $model = Collection::class;
+    protected static ?string $navigationParentItem = "Products";
 
     protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
 

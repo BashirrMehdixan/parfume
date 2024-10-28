@@ -28,13 +28,13 @@ Route::group(['prefix' => $locale, function ($locale = null) {
     });
     // Products
     Route::name('products_category_')->group(function () {
-        Route::get('mehsullar/{category}', [ProductsController::class, 'index'])->name('az');
-        Route::get('product/{category}', [ProductsController::class, 'index'])->name('en');
-        Route::get('produkty/{category}', [ProductsController::class, 'index'])->name('ru');
+        Route::get('mehsullar/{slug}', [ProductsController::class, 'index'])->name('az');
+        Route::get('products/{slug}', [ProductsController::class, 'index'])->name('en');
+        Route::get('produkty/{slug}', [ProductsController::class, 'index'])->name('ru');
     });
     Route::name('products_show_')->group(function () {
         Route::get('mehsullar/{category}/{slug}', [ProductsController::class, 'show'])->name('az');
-        Route::get('product/{category}/{slug}', [ProductsController::class, 'show'])->name('en');
+        Route::get('products/{category}/{slug}', [ProductsController::class, 'show'])->name('en');
         Route::get('produkty/{category}/{slug}', [ProductsController::class, 'show'])->name('ru');
     });
     Route::name('products_filter_')->group(function () {

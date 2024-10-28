@@ -56,7 +56,7 @@
                                 </button>
                             </div>
                             <div class="right_actions">
-                                <button class="btn btn_heart">
+                                <button class="btn btn_actions btn_heart">
                                     <i data-lucide="heart"></i>
                                 </button>
                             </div>

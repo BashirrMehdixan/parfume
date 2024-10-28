@@ -67,10 +67,15 @@ header {
 
                 .active_lang {
                     display: flex;
+                    color: rgba(var(--color_black), 1);
                     align-items: center;
                     font-size: 1.8rem;
                     gap: 1rem;
                     font-weight: 500;
+
+                    & > svg {
+                        stroke: rgba(var(--color_black), 1);
+                    }
                 }
 
                 .lang_items {
@@ -154,6 +159,13 @@ header {
 
 .best_selling {
     padding: 5rem 0;
+
+    .glide__arrow {
+        background: rgba(var(--color_white), 1);
+        svg {
+            stroke: rgba(var(--color_main), 1);
+        }
+    }
 }
 
 .filter_box.flex_item {
@@ -218,7 +230,6 @@ header {
 .products_section .flex_item {
     padding: 2rem 0;
 }
-
 
 .collection_row {
     display: flex;

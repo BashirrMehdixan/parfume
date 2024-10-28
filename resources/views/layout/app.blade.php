@@ -66,7 +66,7 @@
                     <ul class="lang_items">
                         @foreach($langs as $lang)
                             <li class="lang_item">
-                                <a rel="alternate" hreflang="{{ $lang['url'] }}"
+                                <a rel="alternate"
                                    href="{{ $lang['url'] }}">
                                     {{ $lang['code'] }}
                                 </a>

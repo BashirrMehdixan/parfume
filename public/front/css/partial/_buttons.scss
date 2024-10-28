@@ -13,6 +13,11 @@
     &:focus {
         outline: none;
     }
+    &.btn_mobile {
+        svg {
+            stroke: rgba(var(--color_black), 1);
+        }
+    }
 
     &.btn_main {
         color: rgba(var(--color_white), 1);
@@ -35,6 +40,7 @@
         justify-content: center;
 
         svg {
+            stroke: rgba(var(--color_main), 1);
             pointer-events: none;
         }
     }

@@ -11,14 +11,15 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class ProductsController extends Controller
 {
-    public function index($category)
+    public function index($slug)
     {
+        $category = Collection::where('slug->' . session('locale'), $slug)->first();
+//        dd($category->slug);
         $langs = [
-            ['code' => 'az', 'url' => '/mehsullar/' . $category],
-            ['code' => 'en', 'url' => '/en/products/' . $category],
-            ['code' => 'ru', 'url' => '/ru/produkty/' . $category],
+            ['code' => 'az', 'url' => '/mehsullar/' . $category->getTranslation('slug', 'az')],
+            ['code' => 'en', 'url' => '/en/products/' . $category->getTranslation('slug', 'en')],
+            ['code' => 'ru', 'url' => '/ru/produkty/' . $category->getTranslation('slug', 'ru')],
         ];
-        $category = Collection::where('slug->' . session('locale'), $category)->first();
         $products = $category->products()->orderBy('created_at', 'desc')->where('status', 1)->paginate(12);
         $brands = Brand::where('status', 1)->get();
         return view('pages.products.index', compact('langs', 'products', 'brands', 'category'));
