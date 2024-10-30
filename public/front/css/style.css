@@ -444,6 +444,25 @@ img {
   font-size: 1.6rem;
 }
 
+.contact_card {
+  text-align: center;
+  background-color: rgba(var(--color_white), 1);
+  padding: 8rem 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: rgba(var(--color_main), 1);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(var(--color_main), 1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.contact_card .mdi {
+  font-size: 8rem;
+}
+.contact_card:hover {
+  box-shadow: rgba(var(--color_main), 0.5) 0 0.8rem 2.4rem;
+}
+
 .btn {
   display: inline-block;
   font-size: 1.6rem;

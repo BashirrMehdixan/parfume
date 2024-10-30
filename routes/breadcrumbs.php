@@ -32,15 +32,9 @@ Breadcrumbs::for('product', function (BreadcrumbTrail $trail, $product) {
     $trail->push($product->name, route('products_show_' . session('locale'), $product));
 });
 
-//// Home > Watches
-//Breadcrumbs::for('watches', function (BreadcrumbTrail $trail) {
-//    $trail->parent('index');
-//    $trail->push(__('watches'), route('products.index'));
-//});
-//
-//// Home > Watches > [Watch]
-//Breadcrumbs::for('watch', function (BreadcrumbTrail $trail, $watch) {
-//    $trail->parent('watches');
-//    $trail->push($watch->name, route('watches.show', $watch));
-//});
+// Home > Contact
+Breadcrumbs::for('contact', function (BreadcrumbTrail $trail) {
+    $trail->parent('index');
+    $trail->push(__('contact'), route('contact_' . session('locale')));
+});
 

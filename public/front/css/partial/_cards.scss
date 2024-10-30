@@ -121,3 +121,24 @@
         }
     }
 }
+
+.contact_card {
+    text-align: center;
+    background-color: rgba(var(--color_white), 1);
+    padding: 8rem 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: rgba(var(--color_main), 1);
+    border-radius: .5rem;
+    border: 1px solid rgba(var(--color_main), 1);
+    transition: all .3s ease;
+    cursor: pointer;
+
+    .mdi {
+        font-size: 8rem;
+    }
+
+    &:hover {
+        box-shadow: rgba(var(--color_main), 0.5) 0 0.8rem 2.4rem;
+    }
+}
