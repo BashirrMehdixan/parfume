@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ asset('storage/'.$about->favicon) }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('front/plugins/material_design_icons/materialdesignicons.min.css') }}">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css"
-          integrity="sha512-/k658G6UsCvbkGRB3vPXpsPHgWeduJwiWGPCGS14IQw3xpr63AEMdA8nMYG2gmYkXitQxDTn6iiK/2fD4T87qA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{{ asset('front/fonts/material_design_icons/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/plugins/glide/glide.core.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/plugins/glide/glide.theme.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">

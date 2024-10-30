@@ -53,10 +53,10 @@
                                     {{ __('old') }}
                                 </option>
                                 <option value="alph_asc" {{ request('sortBy') == 'alph_asc' ? 'selected' : '' }}>
-                                    {{ __('alphabet') }} Z-A
+                                    {{ __('alphabet') }} A-Z
                                 </option>
                                 <option value="alph_desc" {{ request('sortBy') == 'alph_desc' ? 'selected' : '' }}>
-                                    {{ __('alphabet') }} A-Z
+                                    {{ __('alphabet') }} Z-A
                                 </option>
                                 <option value="low_order" {{ request('sortBy') == 'low_order' ? 'selected' : '' }}>
                                     {{ __('cheapest') }}
