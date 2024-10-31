@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('address')->nullable();
-            $table->string('url')->nullable();
+            $table->longText('url')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('tiktok')->nullable();

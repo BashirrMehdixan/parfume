@@ -49,6 +49,10 @@ a, span {
     text-decoration: inherit;
 }
 
+iframe {
+    width: 100%;
+}
+
 img {
     display: block;
     max-width: 100%;
@@ -81,7 +85,20 @@ img {
     }
 }
 
+label {
+    font-size: 1.6rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: .5rem;
+}
+
+textarea {
+    resize: none;
+}
+
 .form_control {
+    display: block;
+    width: 100%;
     border: 1px solid rgba(var(--color_main), 1);
     font-size: 1.6rem;
     font-weight: 500;
@@ -166,6 +183,23 @@ img {
     }
 }
 
+.contact_list {
+    margin-top: 2rem;
+
+    li {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        gap: .5rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+
+        span.mdi {
+            font-size: 2.5rem;
+        }
+    }
+}
+
 .social_networks {
     display: flex;
     gap: 1rem;
@@ -180,7 +214,8 @@ img {
         border-radius: 50%;
         color: rgba(var(--color_white), 1);
 
-        i {
+        span, i {
+            font-size: 2rem;
             flex-shrink: 0;
         }
     }

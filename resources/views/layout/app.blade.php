@@ -1,9 +1,13 @@
 <!doctype html>
 <html lang="{{ session('locale') }}">
 <head>
+    @vite([])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ asset('storage/'.$about->favicon) }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{{ asset('front/fonts/material_design_icons/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/plugins/glide/glide.core.min.css') }}">
     <link rel="stylesheet" href="{{ asset('front/plugins/glide/glide.theme.min.css') }}">
@@ -108,26 +112,34 @@
                         </li>
                         <li>
                             <ul class="social_networks">
-                                <li class="twitter">
-                                    <a href="">
-                                        <i data-lucide="twitter"></i>
-                                    </a>
-                                </li>
-                                <li class="facebook">
-                                    <a href="">
-                                        <i data-lucide="facebook"></i>
-                                    </a>
-                                </li>
-                                <li class="linkedin">
-                                    <a href="">
-                                        <i data-lucide="linkedin"></i>
-                                    </a>
-                                </li>
-                                <li class="instagram">
-                                    <a href="">
-                                        <i data-lucide="instagram"></i>
-                                    </a>
-                                </li>
+                                @isset($contact->instagram)
+                                    <li class="instagram">
+                                        <a href="{{ $contact->instagram }}">
+                                            <span class="mdi mdi-instagram"></span>
+                                        </a>
+                                    </li>
+                                @endisset
+                                @isset($contact->tiktok)
+                                    <li class="twitter">
+                                        <a href="{{ $contact->tiktok }}">
+                                            <i class="fa-brands fa-tiktok"></i>
+                                        </a>
+                                    </li>
+                                @endisset
+                                @isset($contact->twitter)
+                                    <li class="twitter">
+                                        <a href="{{ $contact->twitter }}">
+                                            <span class="mdi mdi-twitter"></span>
+                                        </a>
+                                    </li>
+                                @endisset
+                                @isset($contact->facebook)
+                                    <li class="facebook">
+                                        <a href="{{ $contact->facebook }}">
+                                            <span class="mdi mdi-facebook"></span>
+                                        </a>
+                                    </li>
+                                @endisset
                             </ul>
                         </li>
                     </ul>
