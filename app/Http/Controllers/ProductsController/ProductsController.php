@@ -16,7 +16,6 @@ class ProductsController extends Controller
         return $langs = [
             ['code' => 'az', 'url' => '/mehsullar/' . $category->getTranslation('slug', 'az')],
             ['code' => 'en', 'url' => '/en/products/' . $category->getTranslation('slug', 'en')],
-            ['code' => 'ru', 'url' => '/ru/produkty/' . $category->getTranslation('slug', 'ru')],
         ];
 
     }
@@ -86,5 +85,15 @@ class ProductsController extends Controller
         return view('pages.products.index', compact('products', 'category'), [
             'langs' => $this->getCategory($category),
         ]);
+    }
+
+    public function search(Request $request)
+    {
+        $langs = [
+            ['code' => 'az', 'url' => '/axtaris/'],
+            ['code' => 'en', 'url' => '/en/search/'],
+        ];
+        $products = Product::where('name->' . session('locale'), 'like', '%' . $request->search . '%')->paginate(12);
+        return view('pages.search', compact('products', 'langs'));
     }
 }

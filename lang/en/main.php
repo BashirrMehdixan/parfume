@@ -39,6 +39,7 @@ return [
     'new_category' => 'New category',
     'new_product' => 'New product',
     'new_brand' => 'New brand',
+    'new_language' => 'New language',
     'new_slide' => 'New slide',
     'new_user' => 'New user',
     'new_blog' => 'New blog',

@@ -76,6 +76,9 @@
                         @endforeach
                     </ul>
                 </div>
+                <button class="btn btn_main">
+                    <span class="mdi mdi-magnify"></span>
+                </button>
                 <button class="btn btn_mobile">
                     <span class="mdi mdi-menu"></span>
                 </button>
@@ -165,58 +168,16 @@
                         <div class="w_full w_md_50 w_lg_25">
                             <div class="footer_widget">
                                 <h5 class="footer_title">
-                                    Shopping
+                                    {{ __('main.collection') }}
                                 </h5>
                                 <ul class="footer_list">
-                                    <li>
-                                        <a href="{{ route('index') }}">
-                                            Payments
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('index') }}">
-                                            Delivery options
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('index') }}">
-                                            Buyer protection
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="w_full w_md_50 w_lg_25">
-                            <div class="footer_widget">
-                                <h5 class="footer_title">
-                                    Customer care
-                                </h5>
-                                <ul class="footer_list">
-                                    <li>
-                                        <a href="{{ route('index') }}">
-                                            Help center
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('index') }}">
-                                            Terms & Conditions
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('index') }}">
-                                            Privacy policy
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('index') }}">
-                                            returns and refund
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('index') }}">
-                                            survey & feedback
-                                        </a>
-                                    </li>
+                                    @foreach($collections as $collection)
+                                        <li>
+                                            <a href="{{ route('products_category_'.session('locale'), $collection->slug) }}">
+                                                {{ $collection->name }}
+                                            </a>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>

@@ -6,6 +6,7 @@ use App\Models\About;
 use App\Models\Brand;
 use App\Models\Collection;
 use App\Models\Contact;
+use App\Models\Language;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $about = About::first();
+        $languages = Language::where('status', 1)->get();
         $contact = Contact::first();
         $brands = Brand::where('status', 1)->get();
         $collections = Collection::where('status', 1)->get();
@@ -31,5 +33,6 @@ class AppServiceProvider extends ServiceProvider
         view()->share('brands', $brands);
         view()->share('collections', $collections);
         view()->share('contact', $contact);
+        view()->share('languages', $languages);
     }
 }

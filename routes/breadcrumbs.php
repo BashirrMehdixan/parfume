@@ -37,4 +37,9 @@ Breadcrumbs::for('contact', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
     $trail->push(__('contact'), route('contact_' . session('locale')));
 });
+// Home > Search
+Breadcrumbs::for('search', function (BreadcrumbTrail $trail) {
+    $trail->parent('index');
+    $trail->push(__('search'), route('search_' . session('locale')));
+});
 

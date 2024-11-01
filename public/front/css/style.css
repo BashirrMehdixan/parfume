@@ -613,12 +613,13 @@ header .navbar .right-nav .lang_box .lang_items {
   border-radius: 0.5rem;
   z-index: 1;
   box-shadow: rgba(var(--color_dark_black), 0.5) 0 0.8rem 2.4rem;
-  transform-origin: top;
+  transform: translate(10%, 30%);
+  opacity: 0;
   transition: all 0.3s ease-in-out;
-  transform: translate(10%, 0) scaleY(0);
 }
 header .navbar .right-nav .lang_box .lang_items.active {
-  transform: translate(10%, 0) scaleY(1);
+  opacity: 1;
+  transform: translate(10%, 0);
 }
 header .navbar .right-nav .lang_box .lang_items .lang_item a {
   display: block;

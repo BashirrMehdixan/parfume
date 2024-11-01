@@ -51,4 +51,8 @@ Route::group(['prefix' => $locale, function ($locale = null) {
         Route::get('brands/{brand}', [BrandsController::class, 'show'])->name('en');
         Route::get('marky/{brand}', [BrandsController::class, 'show'])->name('ru');
     });
+    Route::name('search_')->group(function () {
+        Route::get('axtaris', [ProductsController::class, 'search'])->name('az');
+        Route::get('search', [ProductsController::class, 'search'])->name('en');
+    });
 });

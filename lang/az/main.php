@@ -30,13 +30,14 @@ return [
     'cheapest' => 'Əvvəlcə ucuz',
     'expensive' => 'Əvvəlcə baha',
 
-
     'new_category' => 'Yeni kateqoriya',
     'new_product' => 'Yeni məhsul',
     'new_brand' => 'Yeni brend',
     'new_slide' => 'Yeni slayd',
     'new_user' => 'Yeni istifadəçi',
     'new_blog' => 'Yeni bloq',
+    'new_language' => 'Yeni dil',
+
     'our_address' => 'Ünvanımız',
     'contact_us' => 'Bizimlə əlaqə',
     'firstname' => 'Ad',

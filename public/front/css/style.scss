@@ -85,12 +85,13 @@ header {
                     border-radius: .5rem;
                     z-index: 1;
                     box-shadow: rgba(var(--color_dark_black), .5) 0 .8rem 2.4rem;
-                    transform-origin: top;
+                    transform: translate(10%, 30%);
+                    opacity: 0;
                     transition: all .3s ease-in-out;
-                    transform: translate(10%, 0) scaleY(0);
 
                     &.active {
-                        transform: translate(10%, 0) scaleY(1);
+                        opacity: 1;
+                        transform: translate(10%, 0);
                     }
 
                     .lang_item {
