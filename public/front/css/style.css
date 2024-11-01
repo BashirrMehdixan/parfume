@@ -690,6 +690,7 @@ header .navbar .right-nav .lang_box .lang_items .lang_item a:hover {
 }
 .filter_box.flex_item .filter_list .filter_item {
   position: relative;
+  gap: 1.6rem;
 }
 .filter_box.flex_item .filter_list .filter_item .active_filter {
   cursor: pointer;

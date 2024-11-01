@@ -43,8 +43,8 @@
                 </li>
                 <li class="filter_list">
                     <form action="{{ route('products_category_'.session('locale'), $category->slug) }}" method="GET">
-                        <ul class="filter_item">
-                            <span class="active_filter">{{ __('sort_by') }}</span>
+                        <ul class="flex items_center filter_item">
+                            <span class="active_filter">{{ __('main.sort_by') }}:</span>
                             <select name="sortBy" class="form_control select_control" onchange="this.form.submit()">
                                 <option value="new" {{ request('sortBy') == 'new' ? 'selected' : '' }}>
                                     {{ __('new') }}
