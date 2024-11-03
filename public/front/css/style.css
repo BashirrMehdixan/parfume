@@ -921,6 +921,9 @@ footer .copyright {
     right: 0;
     color: rgba(var(--color_main), 1);
   }
+  header .navbar .nav-menu .mobile_header .btn_close .mdi-close {
+    font-size: 2.6rem;
+  }
   header .navbar .nav-menu.active {
     transform: translate(-6%, 0);
   }

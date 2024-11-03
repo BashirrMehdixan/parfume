@@ -43,7 +43,7 @@
                             </a>
                         </div>
                         <button class="btn btn_close">
-                            <i data-lucide="circle-x"></i>
+                            <span class="mdi mdi-close"></span>
                         </button>
                     </li>
                     <li class="nav-item">
