@@ -54,3 +54,15 @@ actionBtns.forEach(btn => {
     })
 })
 
+const searchBtn = document.querySelector('.btn_search');
+const modal = document.querySelector('.modal');
+searchBtn.addEventListener('click', e => {
+    modal.classList.toggle('show');
+    document.body.style.overflow = 'hidden';
+})
+document.querySelector('.modal .modal_body').addEventListener('click', e => {
+    if (e.target.classList.contains('modal_body')) {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+})

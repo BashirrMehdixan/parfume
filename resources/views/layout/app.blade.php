@@ -15,6 +15,19 @@
     <title>RT Parfume</title>
 </head>
 <body>
+<div class="modal search_modal">
+    <div class="overlay">
+        <div class="modal_body">
+            <div class="container">
+                <form action="{{ route('search_'.session('locale')) }}" method="GET">
+                    <div class="search_form">
+                        <input type="text" name="search" class="form_control">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <header>
     <div class="container">
         <div class="overlay"></div>
@@ -76,7 +89,7 @@
                         @endforeach
                     </ul>
                 </div>
-                <button class="btn btn_main">
+                <button class="btn btn_main btn_search">
                     <span class="mdi mdi-magnify"></span>
                 </button>
                 <button class="btn btn_mobile">

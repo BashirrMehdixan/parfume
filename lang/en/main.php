@@ -36,6 +36,7 @@ return [
     'alphabet' => 'Alphabet',
     'cheapest' => 'First cheapest',
     'expensive' => 'First expensive',
+
     'new_category' => 'New category',
     'new_product' => 'New product',
     'new_brand' => 'New brand',
@@ -43,5 +44,6 @@ return [
     'new_slide' => 'New slide',
     'new_user' => 'New user',
     'new_blog' => 'New blog',
-    'contact_us' => 'Contact use'
+    'contact_us' => 'Contact use',
+    "search" => "Search",
 ];

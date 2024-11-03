@@ -16,7 +16,6 @@ class IndexController extends Controller
         $langs = [
             ['code' => 'az', 'url' => '/'],
             ['code' => 'en', 'url' => '/en'],
-            ['code' => 'ru', 'url' => '/ru'],
         ];
         $slides = Slide::orderBy('order')->where('status', 1)->get();
         $products = Product::inRandomOrder()->where('status', 1)->get();

@@ -29,6 +29,7 @@ return [
     'alphabet' => 'Əlifba sırası ilə',
     'cheapest' => 'Əvvəlcə ucuz',
     'expensive' => 'Əvvəlcə baha',
+    "search" => "axtarış",
 
     'new_category' => 'Yeni kateqoriya',
     'new_product' => 'Yeni məhsul',

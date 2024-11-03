@@ -6,12 +6,12 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 // Home
 Breadcrumbs::for('index', function (BreadcrumbTrail $trail) {
-    $trail->push(__('home'), route('index'));
+    $trail->push(__('main.home'), route('index'));
 });
 // Home > Brands
 Breadcrumbs::for('brands', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(__('brands'), route('brands_' . session('locale')));
+    $trail->push(__('main.brands'), route('brands_' . session('locale')));
 
 });
 // Home > Brands > [Brand]
@@ -35,11 +35,11 @@ Breadcrumbs::for('product', function (BreadcrumbTrail $trail, $product) {
 // Home > Contact
 Breadcrumbs::for('contact', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(__('contact'), route('contact_' . session('locale')));
+    $trail->push(__('main.contact'), route('contact_' . session('locale')));
 });
 // Home > Search
 Breadcrumbs::for('search', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push(__('search'), route('search_' . session('locale')));
+    $trail->push(__('main.search'), route('search_' . session('locale')));
 });
 
