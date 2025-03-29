@@ -8,7 +8,7 @@
         "php": "^8.2",
         "diglactic/laravel-breadcrumbs": "^9.0",
         "filament/filament": "^3.3",
-        "filament/spatie-laravel-translatable-plugin": "^3.2",
+        "filament/spatie-laravel-translatable-plugin": "^3.3",
         "filament/upgrade": "^3.3",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
